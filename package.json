@@ -1,18 +1,26 @@
 {
   "name": "scribe-badan",
   "version": "1.0.0",
-  "description": "A colaboration story app",
+  "description": "A story app.",
   "main": "server.js",
-  "dependencies": {
-    "async": "^0.2.10",
-    "express": "^3.2.6",
-    "mongodb": "^2.1.18",
-    "socket.io": "^0.9.17"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CEREBR4L/scribe-badan.git"
+  },
   "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CEREBR4L/scribe-badan/issues"
+  },
+  "homepage": "https://github.com/CEREBR4L/scribe-badan#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.5.8",
+    "mongoose-auto-increment": "^5.0.1",
+    "shortid": "^2.2.6"
+  }
 }
