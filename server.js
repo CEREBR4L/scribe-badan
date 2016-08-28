@@ -1,9 +1,11 @@
 var express = require("express"),
         app = express();
+var mongoose = require('mongoose');
 
 var stories = require('./routes/stories.js')
        
-
+/* config */
+var connect = mongoose.connect('mongodb://127.0.0.1:27017/scribe');
 var port = process.env.PORT || 8080;
 
 /* PUBLIC LINKS */
