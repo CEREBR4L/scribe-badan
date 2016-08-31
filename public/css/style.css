@@ -32,9 +32,19 @@ body{
     color: #E8E9EB;
     font-family: "Oxygen", sans-serif; }
 
+.link{
+  text-decoration: none;
+}
+
+.link:hover{
+  opacity: .6;
+  transition: .3s;
+}
+
 .cont{
   width: 50%;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 .form{
@@ -68,4 +78,13 @@ body{
   font-size: 1em;
   margin: 20px 10px;
 }
+
+.story{
+  display: inline-block;
+  background-color: #222;
+  color: #eee;
+  margin-top: 20px;
+  padding: 15px;
+}
+
 
