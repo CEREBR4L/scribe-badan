@@ -1,7 +1,9 @@
 
 angular.module('scribe')
-	.controller('home', function homeController($scope, $http){
+	.controller('home', function homeController($scope, getStories){
 
-		$scope.title = "Welcome to Scribe";
+		getStories.getData().then(function(resp){
+            $scope.story = resp.data[0];
+        })
 
 	});
