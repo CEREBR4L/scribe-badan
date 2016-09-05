@@ -1,6 +1,7 @@
 body{
   padding: 0;
   margin: 0;
+  background-color: #e6e6e6;
 }
 
 .nav {
@@ -12,25 +13,32 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: #222; }
-  .nav .nav-text {
-    display: inline-block;
-    color: #E8E9EB;
-    font-family: "Oxygen", sans-serif;
-    margin: 0;
-    padding: 0;
-    font-size: 1.75em;
-    font-weight: 300;
-    opacity: 1; }
-  .nav .nav-list {
-    display: inline-block;
-    padding: 13px 50px;
-    margin: 0px; }
-  .nav .nav-list-item {
-    display: inline-block;
-    padding: 0px 15px;
-    color: #E8E9EB;
-    font-family: "Oxygen", sans-serif; }
+  background-color: #222;
+}
+
+.nav .nav-text {
+  display: inline-block;
+  color: #E8E9EB;
+  font-family: "Oxygen", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.75em;
+  font-weight: 300;
+  opacity: 1; 
+}
+
+.nav .nav-list {
+  display: inline-block;
+  padding: 13px 50px;
+  margin: 0px; 
+}
+
+.nav .nav-list-item {
+  display: inline-block;
+  padding: 0px 15px;
+  color: #E8E9EB;
+  font-family: "Oxygen", sans-serif; 
+}
 
 .link{
   text-decoration: none;
@@ -43,8 +51,11 @@ body{
 
 .cont{
   width: 50%;
-  margin: 0 auto;
-  padding-bottom: 50px;
+  margin: 50px auto 50px auto;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-right: 3px solid #cfcfcf; 
+  border-bottom: 3px solid #cfcfcf; 
 }
 
 .form{
@@ -62,14 +73,14 @@ body{
   color: #ddd;
   border: none;
   padding: 10px 0px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .title{
   font-family: sans-serif;
   font-weight: 200;
   font-size: 2em;
-  margin: 30px 10px;
+  margin: 10px;
 }
 
 .para{
@@ -85,6 +96,10 @@ body{
   color: #eee;
   margin-top: 20px;
   padding: 15px;
+}
+
+.story:nth-child(1){
+  margin: 0;
 }
 
 
