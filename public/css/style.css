@@ -76,6 +76,14 @@ body{
   margin: 10px 0;
 }
 
+.submit:hover{
+  opacity: .9;
+}
+
+.submit:focus{
+  outline: none;
+}
+
 .title{
   font-family: sans-serif;
   font-weight: 200;

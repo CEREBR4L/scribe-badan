@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 /* PUBLIC LINKS */
 app.get('/api/get/stories', stories.getStories);
+app.get('/api/get/random', stories.getRandom);
 
 app.post('/api/new', stories.add);
 

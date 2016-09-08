@@ -6,6 +6,36 @@ exports.getStories = function(req, res){
 	});
 };
 
+
+exports.getRandom = function(req, res){
+	stories.count().exec(function(err, count){
+		
+		if(err){
+
+			console.log('Error counting while trying to get a random story: ' + err);
+			return;
+			
+		}
+
+		var number = Math.floor(Math.random() * count);
+
+		stories.findOne().skip(number).exec(function(err, story){
+
+			if(err){
+
+				console.log('Error geting a random story: ' + err);
+				return;
+
+			}
+
+			res.json(story);
+
+		})
+
+	})
+};
+
+
 exports.add = function(req, res){
 
 	var title = req.body.title;
