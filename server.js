@@ -18,6 +18,8 @@ app.get('/api/get/random', stories.getRandom);
 
 app.post('/api/new', stories.add);
 
+app.put('/api/update/:id', stories.updateStory);
+
 
 /*
  ANGULAR FRONT END

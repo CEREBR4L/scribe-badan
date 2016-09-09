@@ -58,3 +58,32 @@ exports.add = function(req, res){
 	
 }
 
+exports.updateStory = function(req, res){
+
+	var id = req.params.id;
+
+	stories.findOne({_id: id}, function(err, item){
+
+		if(err){
+			console.log("Error finding item while trying to update: " + err);
+			return;
+		}
+
+		item.story = req.body.story;
+
+		item.save(function(err){
+
+			if(err){
+				console.log("Error saving item while trying to update: " + err);
+				return;
+			}
+
+			console.log("Story updated: " + id + " // " + item.title);
+
+			res.send("Update complete for: " + id + " // " + item.title);
+
+		});
+
+	});
+
+}
