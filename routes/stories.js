@@ -52,6 +52,8 @@ exports.add = function(req, res){
 			return;
 		}
 
+		console.log("Story created: " + data.title);
+		
 		res.json(data);
 
 	});

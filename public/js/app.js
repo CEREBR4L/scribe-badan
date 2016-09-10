@@ -11,6 +11,10 @@ app.config(function($routeProvider, $locationProvider){
 			templateUrl: 'templates/stories.html',
 			controller: 'stories'
 		})
+		.when('/newstory', {
+			templateUrl: 'templates/new.html',
+			controller: 'newStory'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

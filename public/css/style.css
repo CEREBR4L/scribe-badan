@@ -64,7 +64,9 @@ body{
 
 .textarea{
   width: 99%;
+  max-width: 99%;
   height: 125px;
+  padding: 5px;
 }
 
 .submit{
@@ -114,4 +116,24 @@ body{
   padding: 15px;
 }
 
+.lbl{
+  display: block;
+  font-family: sans-serif;
+  font-weight: 200;
+  margin: 10px 0;
+}
 
+.story-title{
+  padding: 5px;
+  width: 60%;
+}
+
+.success{
+  font-family: sans-serif;
+  font-weight: 200;
+  color: #fff;
+  background-color: #8FCB9B;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
