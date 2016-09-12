@@ -6,9 +6,13 @@
 
 	<button class="submit" ng-click="getNew()">Get different story</button>
 
-	<form class="form">
-		<textarea class="textarea"></textarea>
+	<div class="success" ng-style="success">{{ status }}</div>
+
+	<form ng-submit="update()" class="form">
+		<textarea class="textarea" ng-model="paragraph" name="paragraph"></textarea>
 		<input type="submit" name="" class="submit">
 	</form>
+	
+
 </div>
 

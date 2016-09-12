@@ -6,6 +6,22 @@ exports.getStories = function(req, res){
 	});
 };
 
+exports.getStoryById = function(req, res){
+
+	var id = req.params.id;
+
+	stories.findOne({_id: id}, function(err, story){
+
+		if(err){
+			console.log("Error getting story by ID: " + err );
+			return;
+		}
+
+		res.json(story);
+
+	});
+
+}
 
 exports.getRandom = function(req, res){
 	stories.count().exec(function(err, count){
@@ -71,7 +87,12 @@ exports.updateStory = function(req, res){
 			return;
 		}
 
-		item.story = req.body.story;
+		if(item.story === undefined){
+			item.story = req.body.story;
+		}
+		else{
+			item.story = item.story + ' ' + req.body.story;
+		}
 
 		item.save(function(err){
 
