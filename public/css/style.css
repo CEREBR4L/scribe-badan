@@ -91,6 +91,24 @@ body{
   outline: none;
 }
 
+.submit-inv{
+  width: 100%;
+  background-color: #ddd;
+  color: #222;
+  border: none;
+  padding: 10px 0px;
+  margin: 10px 0;
+}
+
+.submit-inv:hover{
+  opacity: .9;
+  cursor: pointer;
+}
+
+.submit-inv:focus{
+  outline: none;
+}
+
 .title{
   font-family: sans-serif;
   font-weight: 200;

@@ -1,7 +1,7 @@
 var stories = require('./models/stories.js')
 
 exports.getStories = function(req, res){
-	stories.find({}, function(err, items){
+	stories.find({}).sort({_id: -1}).exec(function(err, items){
 		res.json(items);
 	});
 };

@@ -3,7 +3,7 @@ angular.module('scribe')
 	.controller('newStory', function newController($scope, $http){
 
 		$scope.status = "";
-		$scope.success = {"visibility": "hidden"}
+		$scope.success = {"display": "none"}
 
 		$scope.send = function(){
 
@@ -19,9 +19,9 @@ angular.module('scribe')
 			})
 			.success(function(data, status, headers, config){
 
-				$scope.success = {"visibility": "visible"}
-
 				$scope.status = "Your story has now been saved!";
+
+				$scope.success = {"display": "block"}
 
 			})
 			.error(function(data, status, headers, config){
