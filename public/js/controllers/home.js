@@ -6,10 +6,12 @@ angular.module('scribe')
 		var id;
 
 		function refreshStory(){
+
 			$http.get('/api/get/story/' + id)
 				.success(function(data){
                     $scope.story = data;
                 });
+                
         }
 
 		$scope.getNew = function(){

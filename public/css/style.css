@@ -4,6 +4,10 @@ body{
   background-color: #e6e6e6;
 }
 
+.gray{
+  color: #eee;
+}
+
 .nav {
   width: 100%;
   min-height: 70px;
@@ -46,7 +50,7 @@ body{
 
 .link:hover{
   opacity: .6;
-  transition: .3s;
+  color: rgba(255, 255, 255, 0.6)
 }
 
 .cont{
@@ -80,6 +84,7 @@ body{
 
 .submit:hover{
   opacity: .9;
+  cursor: pointer;
 }
 
 .submit:focus{

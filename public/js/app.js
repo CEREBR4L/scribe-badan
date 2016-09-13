@@ -11,6 +11,10 @@ app.config(function($routeProvider, $locationProvider){
 			templateUrl: 'templates/stories.html',
 			controller: 'stories'
 		})
+		.when('/stories/:storyId', {
+			templateUrl: 'templates/story.html',
+			controller: 'storyById'
+		})
 		.when('/newstory', {
 			templateUrl: 'templates/new.html',
 			controller: 'newStory'
