@@ -7,4 +7,11 @@
 	<h1 class="title">{{ story.title }}</h1>
 	<p class="para">{{ story.story }}</p>
 
+	<div class="success" ng-style="success">{{ status }}</div>
+
+	<form ng-submit="update()" class="form">
+		<textarea class="textarea" ng-model="paragraph" name="paragraph"></textarea>
+		<input type="submit" name="" class="submit">
+	</form>
+
 </div>

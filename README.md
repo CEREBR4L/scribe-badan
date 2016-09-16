@@ -7,5 +7,4 @@ Currently a work in progress
 todo: 
 - User auth/accounts 
 - scoring system? 
-- text box to add to story on each story page 
 
