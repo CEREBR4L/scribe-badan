@@ -5,9 +5,7 @@ Scribe Badan is a really usefull colaborative story app.
 Currently a work in progress
 
 todo: 
-- put requests 
+- User auth/accounts 
 - scoring system? 
-- story on own page
-- things
+- text box to add to story on each story page 
 
-WE ARE MAKING MORE USEFUL THINGS
