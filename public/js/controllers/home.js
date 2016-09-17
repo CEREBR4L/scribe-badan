@@ -15,6 +15,7 @@ angular.module('scribe')
         }
 
 		$scope.getNew = function(){
+
 			getRandom.getData().then(function(resp){
 
             	$scope.story = resp.data;
@@ -25,7 +26,8 @@ angular.module('scribe')
 
             	$scope.paragraph = '';
 
-        	})
+        	});
+
         }
 
 		$scope.getNew();

@@ -8,6 +8,7 @@ angular.module('scribe')
                 return $http.get('/api/get/random').success(function(data){
                     return data;
                 });
+                
             }
 
         };

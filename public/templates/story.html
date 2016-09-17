@@ -4,14 +4,10 @@
 		<button class="submit"><< Go Back</button>
 	</a>
 
-	<h1 class="title">{{ story.title }}</h1>
-	<p class="para">{{ story.story }}</p>
+	<story-display></story-display>
 
-	<div class="success" ng-style="success">{{ status }}</div>
+	<status-bar></status-bar>
 
-	<form ng-submit="update()" class="form">
-		<textarea class="textarea" ng-model="paragraph" name="paragraph"></textarea>
-		<input type="submit" name="" class="submit">
-	</form>
+	<story-update></story-update>
 
 </div>

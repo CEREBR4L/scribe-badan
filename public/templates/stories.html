@@ -1,13 +1,13 @@
 <div class="cont">
 	<div class="story" ng-repeat="story in stories">
 		<div class="story-inner">
-			<a href="#/stories/{{story._id}}" class="gray link">
-				<h1 class="title">{{ story.title }}</h1>
-			</a>
-			<p class="para">{{ story.story }}</p>
+
+			<story-display></story-display>
+			
 			<a href="#/stories/{{story._id}}">
 				<button class="submit-inv">More...</button>
 			</a>
+
 		</div>
     </div>
 </div>
