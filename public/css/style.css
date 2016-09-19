@@ -17,13 +17,13 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: #222;
+  background-color: #333;
 }
 
 .nav .nav-text {
   display: inline-block;
   color: #E8E9EB;
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   font-size: 1.75em;
@@ -41,7 +41,7 @@ body{
   display: inline-block;
   padding: 0px 15px;
   color: #E8E9EB;
-  font-family: "Oxygen", sans-serif; 
+  font-family: 'Roboto', sans-serif; 
 }
 
 .link{
@@ -66,20 +66,52 @@ body{
   padding: 5px;
 }
 
+.story-title{
+  padding: 10px;
+  width: 60%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: #333;
+  background-color: #ddd;
+  border: none;
+  border: 1px solid #f6f6f6;
+}
+
+
+.story-title:active, .story-title:focus{
+  outline: none;
+  border: 1px solid #aaa;
+}
+
 .textarea{
   width: 99%;
   max-width: 99%;
   height: 125px;
   padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: #333;
+  background-color: #ddd;
+  border: none;
+  border: 1px solid #f6f6f6;
+}
+
+.textarea:active, .textarea:focus{
+  outline: none;
+  border: 1px solid #aaa;
+}
+
+.story-update{
+  margin: 20px 0;
 }
 
 .submit{
   width: 100%;
-  background-color: #222;
+  background-color: #333;
   color: #ddd;
   border: none;
   padding: 10px 0px;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .submit:hover{
@@ -93,11 +125,11 @@ body{
 
 .submit-inv{
   width: 100%;
-  background-color: #ddd;
-  color: #222;
+  background-color: #333;
+  color: #e1e1e1;
   border: none;
   padding: 10px 0px;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .submit-inv:hover{
@@ -110,29 +142,31 @@ body{
 }
 
 .title{
-  font-family: sans-serif;
-  font-weight: 200;
-  font-size: 2em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: uppercase;
   margin: 10px;
 }
 
 .para{
-  font-family: sans-serif;
-  font-weight: 200;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 1em;
-  margin: 20px 10px;
+  margin: 30px 10px;
 }
 
 .story{
   display: inline-block;
-  background-color: #222;
-  color: #eee;
+  color: #555;
   margin-top: 20px;
   width: 100%;
+  border-top: 1px solid #e1e1e1;
 }
 
 .story:nth-child(1){
   margin: 0;
+  border-top: none;
 }
 
 .story-inner{
@@ -141,18 +175,13 @@ body{
 
 .lbl{
   display: block;
-  font-family: sans-serif;
-  font-weight: 200;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   margin: 10px 0;
 }
 
-.story-title{
-  padding: 5px;
-  width: 60%;
-}
-
 .success{
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 200;
   color: #fff;
   background-color: #8FCB9B;
