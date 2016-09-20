@@ -1,0 +1,5 @@
+
+<h1 class="title">{{ story.title }}</h1>
+
+<p class="para">{{ story.story | limitTo: 500 }}{{ story.story.length < 500 ? '' : '...' }} </p>
+

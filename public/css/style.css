@@ -1,7 +1,7 @@
 body{
   padding: 0;
   margin: 0;
-  background-color: #e6e6e6;
+  background-color: #4D5061;
 }
 
 .gray{
@@ -17,12 +17,12 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: #333;
+  background-color: #30323D;
 }
 
 .nav .nav-text {
   display: inline-block;
-  color: #E8E9EB;
+  color: #E8C547;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -42,6 +42,7 @@ body{
   padding: 0px 15px;
   color: #E8E9EB;
   font-family: 'Roboto', sans-serif; 
+  font-weight: 300;
 }
 
 .link{
@@ -58,8 +59,8 @@ body{
   margin: 50px auto 50px auto;
   padding: 20px;
   background-color: #f6f6f6;
-  border-right: 3px solid #cfcfcf; 
-  border-bottom: 3px solid #cfcfcf; 
+  border-right: 4px solid #34363F; 
+  border-bottom: 4px solid #34363F; 
 }
 
 .form{
@@ -71,7 +72,7 @@ body{
   width: 60%;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-  color: #333;
+  color: #4D5061;
   background-color: #ddd;
   border: none;
   border: 1px solid #f6f6f6;
@@ -90,7 +91,7 @@ body{
   padding: 5px;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-  color: #333;
+  color: #4D5061;
   background-color: #ddd;
   border: none;
   border: 1px solid #f6f6f6;
@@ -107,8 +108,8 @@ body{
 
 .submit{
   width: 100%;
-  background-color: #333;
-  color: #ddd;
+  background-color: #30323D;
+  color: #E8C547;
   border: none;
   padding: 10px 0px;
   margin: 20px 0;
@@ -125,8 +126,8 @@ body{
 
 .submit-inv{
   width: 100%;
-  background-color: #333;
-  color: #e1e1e1;
+  background-color: #30323D;
+  color: #E8C547;
   border: none;
   padding: 10px 0px;
   margin: 15px 0;
@@ -147,18 +148,19 @@ body{
   font-size: 1.5em;
   text-transform: uppercase;
   margin: 10px;
+  color: #30323D;
 }
 
 .para{
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 1em;
-  margin: 30px 10px;
+  margin: 25px 10px;
+  color: #4D5061;
 }
 
 .story{
   display: inline-block;
-  color: #555;
   margin-top: 20px;
   width: 100%;
   border-top: 1px solid #e1e1e1;
