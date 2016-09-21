@@ -4,6 +4,7 @@ angular.module('scribe')
 
 		$scope.status = "";
 		$scope.success = {"display": "none"}
+		$scope.link = {"display": "none"}
 
 		$scope.send = function(){
 
@@ -15,6 +16,12 @@ angular.module('scribe')
 					$scope.status = "Your story has now been saved!";
 
 					$scope.success = {"display": "block"}
+					$scope.link = {"display": "block"}
+
+					$scope.title = "";
+					$scope.story = "";
+
+					$scope.link = "/stories/" + data.data._id;
 
 				})
 				.catch(function(e){

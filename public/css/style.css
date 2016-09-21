@@ -166,6 +166,24 @@ body{
   color: #4D5061;
 }
 
+.story-link{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin: 15px 0;
+  color: #30323D;
+}
+
+.story-link-color{
+  text-decoration: none;
+  color: #5C80BC;
+}
+
+.story-link-color:hover{
+  color: rgba(92, 128, 188, .6);
+}
+
+
 .story{
   display: inline-block;
   margin-top: 20px;

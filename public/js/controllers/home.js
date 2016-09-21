@@ -26,7 +26,7 @@ angular.module('scribe')
 
 	            	$scope.success = {"display": "none"}
 
-	            	$scope.paragraph = '';
+	            	$scope.paragraph = "";
 
 	        	})
 	        	.catch(function(e){
@@ -49,6 +49,8 @@ angular.module('scribe')
 					$scope.success = {"display": "block"}
 
 					$scope.status = "Your story has now been saved!";
+
+					$scope.paragraph = "";
 
 					refreshStory(id);
 

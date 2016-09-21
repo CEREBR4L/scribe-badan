@@ -30,6 +30,8 @@ angular.module('scribe')
 
 					$scope.status = "Your story has now been saved!";
 
+					$scope.paragraph = "";
+
 					$scope.getStory(id);
 
 				})

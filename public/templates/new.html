@@ -2,6 +2,8 @@
 
 	<status-bar></status-bar>
 
+	<p class="story-link" ng-style="link">Story link: <a ng-href="{{ link }}" class="story-link-color">{{ link }}</a></p>
+
 	<form ng-submit="send()" class="form">
 		<label class="lbl">Title: </label>
 		<input type="text" name="title" class="story-title" ng-model="title" name="title">
