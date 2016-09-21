@@ -1,6 +1,6 @@
 
 angular.module('scribe')
-	.controller('newStory', function newController($scope, $http){
+	.controller('newStory', function newController($scope, createStory){
 
 		$scope.status = "";
 		$scope.success = {"display": "none"}
@@ -9,26 +9,21 @@ angular.module('scribe')
 
 			var story = $.param({ title: $scope.title, story: $scope.story });
 
-			$http({
+			createStory.postStory(story)
+				.then(function(data, status, headers, config){
 
-				method: 'POST',
-				url: '/api/new',
-				data: story,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'} 
+					$scope.status = "Your story has now been saved!";
 
-			})
-			.success(function(data, status, headers, config){
+					$scope.success = {"display": "block"}
 
-				$scope.status = "Your story has now been saved!";
+				})
+				.catch(function(e){
 
-				$scope.success = {"display": "block"}
+					console.log("There was an error creating the story: " + e);
 
-			})
-			.error(function(data, status, headers, config){
+					$scope.status = "There was an error posting...";
 
-				$scope.status = "There was an error posting...";
-
-			});
+				});
 
 		}
 

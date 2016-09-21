@@ -1,49 +1,45 @@
 
 angular.module('scribe')
-	.controller('storyById', function storyByIdController($scope,  $routeParams, $http){
+	.controller('storyById', function storyByIdController($scope,  $routeParams, getStoryById, putStory){
 
 		var id = $routeParams.storyId;
 
 		$scope.title = id;
 		$scope.success = {"display": "none"}
 
-		$scope.getStory = function(){
+		$scope.getStory = function(id){
 
-			$http.get('/api/get/story/' + id)
-			.success(function(data){
-	            $scope.story = data;
-	        });
+			getStoryById.getStory(id)
+				.then(function(data){
+					console.log("Got story: " + data.data.title);
+                    $scope.story = data.data;
+                });
+                
+        }
 
-	    }
-
-	    $scope.getStory();
+	    $scope.getStory(id);
 
 	    $scope.update = function(){
 
 			var story = $.param({ story: $scope.paragraph });
 
-			$http({
+			putStory.putData(story, id)
+				.then(function(data, status, headers, config){
 
-				method: 'PUT',
-				url: '/api/update/' + id,
-				data: story,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'} 
+					$scope.success = {"display": "block"}
 
-			})
-			.success(function(data, status, headers, config){
+					$scope.status = "Your story has now been saved!";
 
-				$scope.success = {"display": "block"}
+					$scope.getStory(id);
 
-				$scope.status = "Your story has now been saved!";
+				})
+				.catch(function(e){
+					
+					console.log("Error updating: " + e);
 
-				$scope.getStory();
+					$scope.status = "There was an error posting...";
 
-			})
-			.error(function(data, status, headers, config){
-
-				$scope.status = "There was an error posting...";
-
-			});
+				});
 
 		}
 

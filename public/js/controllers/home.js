@@ -1,32 +1,39 @@
 
 angular.module('scribe')
-	.controller('home', function homeController($scope, $http, getStories, getRandom){
+	.controller('home', function homeController($scope, getStories, getRandom, putStory, getStoryById){
 
 		$scope.success = {"display": "none"}
 		var id;
 
-		function refreshStory(){
+		function refreshStory(id){
 
-			$http.get('/api/get/story/' + id)
-				.success(function(data){
-                    $scope.story = data;
+			getStoryById.getStory(id)
+				.then(function(data){
+					console.log("Got story: " + data.data.title);
+                    $scope.story = data.data;
                 });
                 
         }
 
 		$scope.getNew = function(){
 
-			getRandom.getData().then(function(resp){
+			getRandom.getData()
+				.then(function(resp){
 
-            	$scope.story = resp.data;
+	            	$scope.story = resp.data;
 
-            	id = resp.data._id
+	            	id = resp.data._id
 
-            	$scope.success = {"display": "none"}
+	            	$scope.success = {"display": "none"}
 
-            	$scope.paragraph = '';
+	            	$scope.paragraph = '';
 
-        	});
+	        	})
+	        	.catch(function(e){
+
+	        		console.log("Error: " + e);
+
+	        	});
 
         }
 
@@ -36,28 +43,23 @@ angular.module('scribe')
 
 			var story = $.param({ story: $scope.paragraph });
 
-			$http({
+			putStory.putData(story, id)
+				.then(function(data, status, headers, config){
 
-				method: 'PUT',
-				url: '/api/update/' + id,
-				data: story,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'} 
+					$scope.success = {"display": "block"}
 
-			})
-			.success(function(data, status, headers, config){
+					$scope.status = "Your story has now been saved!";
 
-				$scope.success = {"display": "block"}
+					refreshStory(id);
 
-				$scope.status = "Your story has now been saved!";
+				})
+				.catch(function(data, status, headers, config){
 
-				refreshStory();
+					console.log("Error" + data);
 
-			})
-			.error(function(data, status, headers, config){
+					$scope.status = "There was an error posting...";
 
-				$scope.status = "There was an error posting...";
-
-			});
+				});
 
 		}
 
