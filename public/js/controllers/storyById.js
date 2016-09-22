@@ -1,11 +1,50 @@
 
 angular.module('scribe')
-	.controller('storyById', function storyByIdController($scope,  $routeParams, getStoryById, putStory){
+	.controller('storyById', function storyByIdController($scope,  $routeParams, getStoryById, putStory, putUpvote, putDownvote, putView){
 
 		var id = $routeParams.storyId;
 
 		$scope.title = id;
 		$scope.success = {"display": "none"}
+
+		function viewPlus(id){
+
+        	putView.add(id)
+				.then(function(data){
+					console.log("View added to story: " + data.data.title);
+                    $scope.story = data.data;
+                })
+                .catch(function(e){
+                	console.log("Error adding view: " + e);
+                });
+
+        }
+
+		$scope.addUpvote = function(){
+
+			putUpvote.add(id)
+				.then(function(data){
+					console.log("Upvote added!");
+					$scope.story = data.data;
+				})
+				.catch(function(e){
+					console.log("There was an error: " + e);
+				});
+
+		}
+
+		$scope.addDownvote = function(){
+
+			putDownvote.add(id)
+				.then(function(data){
+					console.log("Downvote added!");
+					$scope.story = data.data;
+				})
+				.catch(function(e){
+					console.log("There was an error: " + e);
+				});
+
+		}
 
 		$scope.getStory = function(id){
 
@@ -13,7 +52,11 @@ angular.module('scribe')
 				.then(function(data){
 					console.log("Got story: " + data.data.title);
                     $scope.story = data.data;
-                });
+                    viewPlus(id);
+                })
+                .catch(function(e){
+                	console.log("There was an error getting story: " + e);
+                })
                 
         }
 

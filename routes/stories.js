@@ -110,3 +110,94 @@ exports.updateStory = function(req, res){
 	});
 
 }
+
+exports.addPositive = function(req, res){
+
+	var id = req.params.id; 
+
+	stories.findOne({_id: id}, function(err, item){
+
+		if(err){
+			console.log("Error adding upvote: " + err);
+			return;
+		}
+
+		item.positive = item.positive + 1;
+
+		item.save(function(err, data){
+
+			if(err){
+				console.log("Error saving upvote: " + err);
+				return;
+			}
+
+			console.log("Upvote added to: " + id + " // " + item.title );
+
+			res.json(data);
+
+		});
+
+	});
+
+}
+
+exports.addNegative = function(req, res){
+
+	var id = req.params.id; 
+
+	stories.findOne({_id: id}, function(err, item){
+
+		if(err){
+			console.log("Error adding Downvote: " + err);
+			return;
+		}
+
+		item.negative = item.negative + 1;
+
+		item.save(function(err, data){
+
+			if(err){
+				console.log("Error saving upvote: " + err);
+				return;
+			}
+
+			console.log("Downvote added to: " + id + " // " + item.title );
+
+			res.json(data);
+
+		});
+
+	});
+
+}
+
+
+exports.addView = function(req, res){
+
+	var id = req.params.id; 
+
+	stories.findOne({_id: id}, function(err, item){
+
+		if(err){
+			console.log("Error adding view: " + err);
+			return;
+		}
+
+		item.views = item.views + 1;
+
+		item.save(function(err, data){
+
+			if(err){
+				console.log("Error saving view: " + err);
+				return;
+			}
+
+			console.log("View added to: " + id + " // " + item.title );
+
+			res.json(data);
+
+		});
+
+	});
+
+}

@@ -7,7 +7,7 @@ var dbSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-	negitive: {
+	negative: {
 		type: Number,
 		default: 0
 	},

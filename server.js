@@ -20,7 +20,9 @@ app.get('/api/get/random', stories.getRandom);
 app.post('/api/new', stories.add);
 
 app.put('/api/update/:id', stories.updateStory);
-
+app.put('/api/addPos/:id', stories.addPositive);
+app.put('/api/addNeg/:id', stories.addNegative);
+app.put('/api/addView/:id', stories.addView);
 
 /*
  ANGULAR FRONT END

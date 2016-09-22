@@ -1,6 +1,6 @@
 
 angular.module('scribe')
-	.controller('home', function homeController($scope, getStories, getRandom, putStory, getStoryById){
+	.controller('home', function homeController($scope, getStories, getRandom, putStory, getStoryById, putUpvote, putDownvote, putView){
 
 		$scope.success = {"display": "none"}
 		var id;
@@ -15,6 +15,45 @@ angular.module('scribe')
                 
         }
 
+        function viewPlus(id){
+
+        	putView.add(id)
+				.then(function(data){
+					console.log("View added to story: " + data.data.title);
+                    $scope.story = data.data;
+                })
+                .catch(function(e){
+                	console.log("Error adding view: " + e);
+                });
+
+        }
+
+        $scope.addUpvote = function(){
+
+			putUpvote.add(id)
+				.then(function(data){
+					console.log("Upvote added!");
+					$scope.story = data.data;
+				})
+				.catch(function(e){
+					console.log("There was an error: " + e);
+				});
+
+		}
+
+		$scope.addDownvote = function(){
+
+			putDownvote.add(id)
+				.then(function(data){
+					console.log("Downvote added!");
+					$scope.story = data.data;
+				})
+				.catch(function(e){
+					console.log("There was an error: " + e);
+				});
+
+		}
+
 		$scope.getNew = function(){
 
 			getRandom.getData()
@@ -22,7 +61,9 @@ angular.module('scribe')
 
 	            	$scope.story = resp.data;
 
-	            	id = resp.data._id
+	            	id = resp.data._id;
+
+	            	viewPlus(id);
 
 	            	$scope.success = {"display": "none"}
 
