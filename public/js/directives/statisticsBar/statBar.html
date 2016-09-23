@@ -1,0 +1,14 @@
+
+<div class="statistics-bar">
+	<div>
+		<button ng-click="addUpvote()" class="upvote">&#9651;</button>
+		<button ng-click="addDownvote()" class="downvote">&#9651;</button>
+	</div>
+
+	<div>
+		<p class="statistics-item upvote-display">+{{ story.positive }}</p>
+		<p class="statistics-item downvote-display">-{{ story.negative }}</p>
+		<p class="statistics-item">Views: {{ story.views }}</p>
+	</div>
+</div>
+

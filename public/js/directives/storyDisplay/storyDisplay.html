@@ -3,16 +3,5 @@
 
 <p class="para">{{ story.story}}</p>
 
-<div class="status-bar">
-	<div>
-		<button ng-click="addUpvote()" class="upvote">&#9651;</button>
-		<button ng-click="addDownvote()" class="downvote">&#9651;</button>
-	</div>
-
-	<div>
-		<p class="status-item upvote-display">+{{ story.positive }}</p>
-		<p class="status-item downvote-display">-{{ story.negative }}</p>
-		<p class="status-item">Views: {{ story.views }}</p>
-	</div>
-</div>
+<stat-bar></stat-bar>
 

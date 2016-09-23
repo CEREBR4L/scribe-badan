@@ -217,14 +217,14 @@ body{
   width: 100%;
 }
 
-.status-bar{
+.statistics-bar{
   width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
-.status-item{
+.statistics-item{
   font-family: 'Roboto', sans-serif;
   font-size: .75em;
   margin: 5px 5px;
@@ -235,7 +235,8 @@ body{
   border: none;
   background-color: #f6f6f6;
   font-size: 1.25em;
-  transition: 1s;
+  transition: .5s;
+  padding: 0;
 }
 
 .upvote:active, .upvote:focus, 
