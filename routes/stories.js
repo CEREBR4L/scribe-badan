@@ -56,10 +56,12 @@ exports.add = function(req, res){
 
 	var title = req.body.title;
 	var story = req.body.story;	
+	var author = req.body.author;
 
 	var data = 	new stories({
 		title: title,
-		story: story
+		story: story,
+		author: author
 	})
 
 	data.save(function(err, data){

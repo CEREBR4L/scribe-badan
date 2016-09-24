@@ -67,6 +67,10 @@ angular.module('scribe')
 
 	            	$scope.success = {"display": "none"}
 
+	            	if(!resp.data.author){
+                    	$scope.auth = {"display": "none"};
+                    }	
+
 	            	$scope.paragraph = "";
 
 	        	})

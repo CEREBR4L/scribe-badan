@@ -6,9 +6,11 @@
 
 	<form ng-submit="send()" class="form">
 		<label class="lbl">Title: </label>
-		<input type="text" name="title" class="story-title" ng-model="title" name="title">
+		<input type="text" name="title" class="story-title" ng-model="title">
 		<label class="lbl">Story:</label>
 		<textarea class="textarea" ng-model="story" name="story"></textarea>
+		<label class="lbl">Author: </label>
+		<input type="text" name="author" class="story-title" ng-model="author">
 		<input type="submit" name="" class="submit">
 	</form>
 

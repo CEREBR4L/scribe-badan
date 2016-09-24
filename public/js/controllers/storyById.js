@@ -49,10 +49,17 @@ angular.module('scribe')
 		$scope.getStory = function(id){
 
 			getStoryById.getStory(id)
-				.then(function(data){
-					console.log("Got story: " + data.data.title);
-                    $scope.story = data.data;
+				.then(function(resp){
+
+					console.log("Got story: " + resp.data.title);
+                    $scope.story = resp.data;
+
+                    if(!resp.data.author){
+                    	$scope.auth = {"display": "none"};
+                    }	
+
                     viewPlus(id);
+
                 })
                 .catch(function(e){
                 	console.log("There was an error getting story: " + e);

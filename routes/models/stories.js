@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var dbSchema = new mongoose.Schema({
 	title: String,
 	story: String,
+	author: String,
 	positive: {
 		type: Number,
 		default: 0

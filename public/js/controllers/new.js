@@ -8,7 +8,7 @@ angular.module('scribe')
 
 		$scope.send = function(){
 
-			var story = $.param({ title: $scope.title, story: $scope.story });
+			var story = $.param({ title: $scope.title, story: $scope.story, author: $scope.author });
 
 			createStory.postStory(story)
 				.then(function(data, status, headers, config){
@@ -20,6 +20,7 @@ angular.module('scribe')
 
 					$scope.title = "";
 					$scope.story = "";
+					$scope.author = "";
 
 					$scope.link = "/stories/" + data.data._id;
 

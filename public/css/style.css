@@ -233,9 +233,12 @@ body{
 
 .upvote, .downvote{
   border: none;
-  background-color: #f6f6f6;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  height: 1.25em;
+  width: 1.25em;
   font-size: 1.25em;
-  transition: .5s;
+  transition: .3s;
   padding: 0;
 }
 
@@ -260,4 +263,16 @@ body{
 
 .downvote{
   transform: rotate(180deg);
+}
+
+.author{
+  font-family: 'Roboto', sans-serif;
+  font-size: .8em;
+  font-weight: 500;
+  text-align: right;
+  margin: 15px 25px;
+}
+
+.author-inner{
+  color: #E8C547;
 }
