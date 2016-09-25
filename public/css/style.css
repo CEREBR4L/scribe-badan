@@ -86,9 +86,21 @@ body{
 }
 
 
-.story-title:active, .story-title:focus{
+.story-title:active, .story-title:focus, 
+.story-author:active, .story-author:focus{
   outline: none;
   border: 1px solid #aaa;
+}
+
+.story-author{
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: #4D5061;
+  background-color: #ddd;
+  border: none;
+  border: 1px solid #f6f6f6;
+  width: 30%;
 }
 
 .textarea{
