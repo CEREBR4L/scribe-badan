@@ -203,3 +203,31 @@ exports.addView = function(req, res){
 	});
 
 }
+
+exports.markComplete = function(req, res){
+
+	var id = req.params.id;
+
+	stories.findOne({_id: id}, function(err, story){
+
+		if(err){
+			console.log("Error marking complete: " + err);
+			return;
+		}
+
+		story.complete = true; 
+
+		story.save(function(err, item){
+
+			if(err){
+				console.log("Error saving when marking story complete: " + err);
+				return;
+			}
+
+			res.json(data);
+
+		})
+
+	})
+
+}

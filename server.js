@@ -23,6 +23,7 @@ app.put('/api/update/:id', stories.updateStory);
 app.put('/api/addPos/:id', stories.addPositive);
 app.put('/api/addNeg/:id', stories.addNegative);
 app.put('/api/addView/:id', stories.addView);
+app.put('/api/markComplete/:id', stories.markComplete);
 
 /*
  ANGULAR FRONT END
