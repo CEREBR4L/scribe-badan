@@ -24,7 +24,7 @@ exports.getStoryById = function(req, res){
 }
 
 exports.getRandom = function(req, res){
-	stories.count().exec(function(err, count){
+	stories.count({complete: false}).exec(function(err, count){
 		
 		if(err){
 
@@ -35,7 +35,7 @@ exports.getRandom = function(req, res){
 
 		var number = Math.floor(Math.random() * count);
 
-		stories.findOne().skip(number).exec(function(err, story){
+		stories.findOne({complete: false}).skip(number).exec(function(err, story){
 
 			if(err){
 
