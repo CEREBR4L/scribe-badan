@@ -96,6 +96,8 @@ exports.updateStory = function(req, res){
 			item.story = item.story + ' ' + req.body.story;
 		}
 
+		item.complete = req.body.complete;
+
 		item.save(function(err){
 
 			if(err){

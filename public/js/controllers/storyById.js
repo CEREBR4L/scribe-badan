@@ -71,14 +71,14 @@ angular.module('scribe')
 
 	    $scope.update = function(){
 
-			var story = $.param({ story: $scope.paragraph });
+			var story = $.param({ story: $scope.paragraph, complete: $scope.complete });
 
 			putStory.putData(story, id)
 				.then(function(data, status, headers, config){
 
 					$scope.success = {"display": "block"}
 
-					$scope.status = "Your story has now been saved!";
+					$scope.status = "Your story has now been updated!";
 
 					$scope.paragraph = "";
 

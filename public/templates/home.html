@@ -1,12 +1,12 @@
 <div class="cont">
+	
+	<status-bar></status-bar>
 
 	<story-display></story-display>
 
 	<button class="submit" ng-click="getNew()">Get different story</button>
 
-	<status-bar></status-bar>
-
-	<story-update></story-update>
+	<story-update ng-hide="story.complete"></story-update>
 	
 
 </div>
