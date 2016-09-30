@@ -288,3 +288,41 @@ body{
 .author-inner{
   color: #E8C547;
 }
+
+
+.checkbox{
+  font-family: 'Roboto', sans-serif;
+  color: #4D5061;
+  padding-top: 5px;
+  margin: 10px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.chk{
+  margin: 0px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: -1px 4px 0 0;
+    border-radius: 0%;
+    vertical-align: middle;
+    background-color: #4D5061;
+    border: 3px solid rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    width: 12px;
+    height: 12px;
+    border: 3px solid rgba(77, 80, 97, 1);
+    background-color: #E8C547;
+}

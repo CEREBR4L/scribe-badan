@@ -1,7 +1,14 @@
 
 <form ng-submit="update()" class="form story-update">
+
 	<textarea class="textarea" ng-model="paragraph" name="paragraph"></textarea>
-	<input type="checkbox" name="complete" ng-model="complete"><label>Mark Complete</label>
+
+	<div class="checkbox">
+		<input type="checkbox" id="c1" name="cc" ng-model="private" />
+		<label for="c1"><span></span><p class="chk">Mark Story Complete</p></label>
+	</div>
+
 	<input type="submit" name="" class="submit">
+
 </form>
 
