@@ -289,7 +289,6 @@ body{
   color: #E8C547;
 }
 
-
 .checkbox{
   font-family: 'Roboto', sans-serif;
   color: #4D5061;
@@ -308,6 +307,7 @@ body{
 input[type="checkbox"] {
     display: none;
 }
+
 input[type="checkbox"] + label span {
     display: inline-block;
     width: 12px;
