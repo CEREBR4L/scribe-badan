@@ -166,7 +166,7 @@ body{
   font-weight: 700;
   font-size: 1.5em;
   text-transform: uppercase;
-  margin: 10px;
+  margin: 10px 0;
   color: #30323D;
 }
 
@@ -216,7 +216,16 @@ body{
   display: block;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  margin: 10px 0;
+  margin: 15px 0 0 0;
+}
+
+.label-desc{
+  display: block;
+  color: #6D8091;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: .75em;
+  margin: 5px 0;
 }
 
 .success{
