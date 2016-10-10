@@ -93,7 +93,7 @@ exports.updateStory = function(req, res){
 			item.story = req.body.story;
 		}
 		else{
-			item.story = item.story + ' ' + req.body.story;
+			item.story = item.story + '\n\n' + req.body.story;
 		}
 
 		item.complete = req.body.complete;

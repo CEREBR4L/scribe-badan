@@ -4,6 +4,6 @@
 <p class="para">{{ story.story | limitTo: 500 }}{{ story.story.length < 500 ? '' : '...' }} </p>
 
 <p class="author" ng-style="{ 'display':( story.author.length > 0 ? 'block' : 'none' ) }">
-	A Story By: <span class="author-inner">{{ story.author }}</span>
+	Story Started By: <span class="author-inner">{{ story.author }}</span>
 </p>
 

@@ -176,6 +176,7 @@ body{
   font-size: 1em;
   margin: 25px 0px;
   color: #4D5061;
+  white-space: pre-wrap;
 }
 
 .story-link{
