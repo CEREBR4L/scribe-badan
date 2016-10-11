@@ -39,7 +39,6 @@ body{
 }
 
 .nav .nav-list {
-  display: inline-block;
   padding: 13px 50px;
   margin: 0px; 
 }
@@ -336,3 +335,39 @@ input[type="checkbox"]:checked + label span {
     border: 3px solid rgba(77, 80, 97, 1);
     background-color: #E8C547;
 }
+
+
+@media (max-width: 1150px){
+
+  body{
+    background-color: #f6f6f6;
+  }
+
+  .nav {
+    min-height: 120px;
+    max-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .nav .nav-list{
+    padding: 13px 0;
+  }
+  
+  .cont{
+    width: 100%;
+    margin: 0;
+    padding: 25px 0;
+    border: none;
+  }
+
+  .cont-inner{
+    padding: 20px 30px;
+  }
+
+  .story-title, .story-author{
+    width: 97%;
+  }
+
+} 
+

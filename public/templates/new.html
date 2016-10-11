@@ -1,23 +1,25 @@
 <div class="cont">
+	<div class="cont-inner">
 
-	<status-bar></status-bar>
+		<status-bar></status-bar>
 
-	<h1 class="title">Create A Story</h1>
+		<h1 class="title">Create A Story</h1>
 
-	<p class="story-link" ng-style="link">Story link: <a ng-href="{{ link }}" class="story-link-color">{{ link }}</a></p>
+		<p class="story-link" ng-style="link">Story link: <a ng-href="{{ link }}" class="story-link-color">{{ link }}</a></p>
 
-	<form ng-submit="send()" class="form">
-		<label class="lbl">Title </label>
-		<span class="label-desc">But what will you call it?</span>
-		<input type="text" name="title" class="story-title" ng-model="title">
-		<label class="lbl">Story</label>
-		<span class="label-desc">Write your story, create your own reality, let others add to it, where will you start?</span>
-		<textarea class="textarea" ng-model="story" name="story"></textarea>
-		<label class="lbl">Author </label>
-		<span class="label-desc">Who do you want everyone to know you as?</span>
-		<input type="text" name="author" class="story-author" ng-model="author">
-		<input type="submit" name="" class="submit">
-	</form>
+		<form ng-submit="send()" class="form">
+			<label class="lbl">Title </label>
+			<span class="label-desc">But what will you call it?</span>
+			<input type="text" name="title" class="story-title" ng-model="title">
+			<label class="lbl">Story</label>
+			<span class="label-desc">Write your story, create your own reality, let others add to it, where will you start?</span>
+			<textarea class="textarea" ng-model="story" name="story"></textarea>
+			<label class="lbl">Author </label>
+			<span class="label-desc">Who do you want everyone to know you as?</span>
+			<input type="text" name="author" class="story-author" ng-model="author">
+			<input type="submit" name="" class="submit">
+		</form>
 
+	</div>
 </div>
 
