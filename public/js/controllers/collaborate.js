@@ -1,6 +1,6 @@
 
 angular.module('scribe')
-	.controller('home', function homeController($scope, getStories, getRandom, putStory, getStoryById, putUpvote, putDownvote, putView){
+	.controller('collaborate', function homeController($scope, getStories, getRandom, putStory, getStoryById, putUpvote, putDownvote, putView){
 
 		$scope.success = {"display": "none"}
 		var id;
