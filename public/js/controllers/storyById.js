@@ -71,6 +71,8 @@ angular.module('scribe')
 
 	    $scope.update = function(){
 
+	    	console.log($scope.complete);
+
 			var story = $.param({ story: $scope.paragraph, complete: $scope.complete });
 
 			putStory.putData(story, id)
