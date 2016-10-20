@@ -90,12 +90,13 @@ body{
 
 
 .story-title:active, .story-title:focus, 
-.story-author:active, .story-author:focus{
+.story-author:active, .story-author:focus,
+.story-genre:active{
   outline: none;
   border: 1px solid #aaa;
 }
 
-.story-author{
+.story-author, .story-genre{
   padding: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
@@ -103,7 +104,7 @@ body{
   background-color: #ddd;
   border: none;
   border: 1px solid #f6f6f6;
-  width: 30%;
+  width: 60%;
 }
 
 .textarea{
@@ -394,7 +395,27 @@ input[type="checkbox"]:checked + label span {
   }
 
   .story-title, .story-author{
-    width: 97%;
+    width: 98%;
+  }
+  
+  .story-genre{
+    width: 100%;
+  }
+  
+  .half{
+    width: 100%;
+  }
+
+  .margin-v-25{
+    margin: 25px auto 0px auto !important;
+  }
+
+  .cont{
+    padding: 0 0;
+  }
+
+  .cont-inner{
+    padding: 0 30px;
   }
 
 } 
