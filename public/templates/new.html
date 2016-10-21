@@ -28,12 +28,13 @@
 			<div class="half">
 				<label class="lbl">Genre </label>
 				<span class="label-desc">But wait, what flavor will it be?</span>
-				<select name="genre" class="story-genre">
-					<option value=""></option>
-					<option value="Comedy">Comedy</option>
-					<option value="Mystery">Mystery</option>
-					<option value="Horror">Horror</option>
-					<option value="Thriller">Thriller</option>
+				<select 
+					name="genres" 
+					ng-model="genreSelected" 
+					class="story-genre" 
+					ng-options="genre.id as genre.type for genre in genres"
+					ng-change="getGenre(genres[genreSelected-1])"
+					>
 				</select>
 			</div>
 

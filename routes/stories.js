@@ -57,11 +57,13 @@ exports.add = function(req, res){
 	var title = req.body.title;
 	var story = req.body.story;	
 	var author = req.body.author;
+	var genre = req.body.genre;
 
 	var data = 	new stories({
 		title: title,
 		story: story,
-		author: author
+		author: author,
+		genre: genre
 	})
 
 	data.save(function(err, data){
