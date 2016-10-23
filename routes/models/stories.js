@@ -5,6 +5,7 @@ var dbSchema = new mongoose.Schema({
 	story: String,
 	author: String,
 	genre: String,
+	rating: Number,
 	positive: {
 		type: Number,
 		default: 0
