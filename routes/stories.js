@@ -130,6 +130,8 @@ exports.addPositive = function(req, res){
 
 		item.positive = item.positive + 1;
 
+		item.rating = findRating(item.positive, item.negative, item.views);
+
 		item.save(function(err, data){
 
 			if(err){
@@ -159,6 +161,8 @@ exports.addNegative = function(req, res){
 		}
 
 		item.negative = item.negative + 1;
+
+		item.rating = findRating(item.positive, item.negative, item.views);
 
 		item.save(function(err, data){
 
@@ -190,6 +194,8 @@ exports.addView = function(req, res){
 		}
 
 		item.views = item.views + 1;
+
+		item.rating = findRating(item.positive, item.negative, item.views);
 
 		item.save(function(err, data){
 
@@ -235,3 +241,13 @@ exports.markComplete = function(req, res){
 	})
 
 }
+
+function findRating(upvotes, downvotes, views){
+
+	upvotes *= 2.75;
+	downvotes *= 2.75;
+
+	return upvotes + views - downvotes;
+
+}
+
