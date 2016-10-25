@@ -1,7 +1,7 @@
 var stories = require('./models/stories.js')
 
 exports.getStories = function(req, res){
-	stories.find({}).sort({_id: -1}).exec(function(err, items){
+	stories.find({}).sort({rating: -1}).exec(function(err, items){
 		res.json(items);
 	});
 };
@@ -63,7 +63,9 @@ exports.add = function(req, res){
 		title: title,
 		story: story,
 		author: author,
-		genre: genre
+		genre: genre,
+		created: new Date,
+		updated: new Date
 	})
 
 	data.save(function(err, data){
@@ -99,6 +101,7 @@ exports.updateStory = function(req, res){
 		}
 
 		item.complete = req.body.complete;
+		item.updated = new Date;
 
 		item.save(function(err){
 
