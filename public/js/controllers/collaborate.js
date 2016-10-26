@@ -97,6 +97,8 @@ angular.module('scribe')
 
 					$scope.paragraph = "";
 
+					$scope.updateStoryForm.$setPristine();
+
 					refreshStory(id);
 
 				})

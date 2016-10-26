@@ -2,16 +2,30 @@
 <h1 class="title">Add to this story</h1>
 <span class="label-desc">Continue from where the story left off, add and help create this world.</span>
 
-<form ng-submit="update()" class="form story-update">
+<form ng-submit="update()" class="form story-update" name="updateStoryForm">
 
-	<textarea class="textarea" ng-model="paragraph" name="paragraph"></textarea>
+	<textarea 
+		class="textarea" 
+		ng-model="paragraph" 
+		name="paragraph" 
+		placeholder="You shall continue this tale..." 
+		ng-class="{ 'has-error' : updateStoryForm.paragraph.$invalid && !updateStoryForm.paragraph.$pristine }"
+		required
+	>	
+	</textarea>
+	<p 
+		ng-show="updateStoryForm.paragraph.$invalid && !updateStoryForm.paragraph.$pristine" 
+		class="help-block"
+	>
+		How can the story continue with no words?
+	</p>
 
 	<div class="checkbox">
 		<input type="checkbox" id="c1" name="complete" ng-model="complete" />
 		<label for="c1"><span></span><p class="chk">Mark Story Complete</p></label>
 	</div>
 
-	<input type="submit" name="" class="submit">
+	<input type="submit" name="" class="submit" ng-disabled="updateStoryForm.$invalid">
 
 </form>
 

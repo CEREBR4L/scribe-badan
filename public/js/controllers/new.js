@@ -45,6 +45,8 @@ angular.module('scribe')
 					$scope.author = "";
 					$scope.genreSelected = $scope.genres[0].id;
 
+					$scope.newStoryForm.$setPristine();
+
 					$scope.link = "/stories/" + data.data._id;
 
 				})

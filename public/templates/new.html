@@ -12,17 +12,39 @@
 
 		<p class="story-link" ng-style="link">Story link: <a ng-href="{{ link }}" class="story-link-color">{{ link }}</a></p>
 
-		<form ng-submit="send()" class="form">
+		<form ng-submit="send()" class="form" name="newStoryForm">
+
 			<label class="lbl">Title </label>
 			<span class="label-desc">But what will you call it?</span>
-			<input type="text" name="title" class="story-title" ng-model="title">
+			<input 
+				type="text" 
+				name="title" 
+				class="story-title" 
+				ng-class="{ 'has-error' : newStoryForm.title.$invalid && !newStoryForm.title.$pristine }" 
+				placeholder="The sands of time" 
+				ng-model="title" 
+				ng-minlength="3"
+				required
+			>
+			<p ng-show="newStoryForm.title.$invalid && !newStoryForm.title.$pristine" class="help-block">Please enter a title for your creation.</p>
+
 			<label class="lbl">Story</label>
 			<span class="label-desc">Write your story, create your own reality, let others add to it, where will you start?</span>
-			<textarea class="textarea" ng-model="story" name="story"></textarea>
+			<textarea 
+				class="textarea" 
+				ng-class="{ 'has-error' : newStoryForm.story.$invalid && !newStoryForm.story.$pristine }" 
+				ng-model="story" 
+				name="story" 
+				placeholder="Once upon a truth..." 
+				required
+			>
+			</textarea>
+			<p ng-show="newStoryForm.story.$invalid && !newStoryForm.story.$pristine" class="help-block">How can you have a story with no story?</p>
+
 			<div class="half">
 				<label class="lbl">Author </label>
 				<span class="label-desc">Who do you want everyone to know you as?</span>
-				<input type="text" name="author" class="story-author" ng-model="author">
+				<input type="text" name="author" class="story-author" placeholder="JJ Storyman" ng-model="author">
 			</div>
 
 			<div class="half">
@@ -38,7 +60,8 @@
 				</select>
 			</div>
 
-			<input type="submit" name="" class="submit">
+			<input type="submit" name="" class="submit" ng-disabled="newStoryForm.$invalid">
+
 		</form>
 
 	</div>

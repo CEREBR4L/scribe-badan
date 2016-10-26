@@ -147,6 +147,10 @@ body{
   outline: none;
 }
 
+.submit[disabled]{
+  opacity: .8;
+}
+
 .submit-inv{
   width: 100%;
   background-color: #30323D;
@@ -365,6 +369,16 @@ input[type="checkbox"]:checked + label span {
   background-color: #E8C547;
 }
 
+.has-error.ng-invalid{
+  border: 1px solid #E8C547;
+}
+
+.help-block{
+  font-family: 'Roboto', sans-serif;
+  color: #E8C547;
+  margin: 0;
+}
+
 
 @media (max-width: 1150px){
 
@@ -419,4 +433,6 @@ input[type="checkbox"]:checked + label span {
   }
 
 } 
+
+
 
