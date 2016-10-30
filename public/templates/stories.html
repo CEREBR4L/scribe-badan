@@ -6,7 +6,17 @@
 </div>
 
 <div class="cont">
-	<div class="story" ng-repeat="story in stories">
+	<div class="order-by">
+		<label class="lbl inline">Order by:</label>
+		<select 
+			class="form-dropdown inline"
+			ng-options="order.text for order in orders" 
+			ng-model="sortBy"
+		>
+		</select>
+	</div>
+
+	<div class="story" ng-repeat="story in stories | orderBy: sortBy.value">
 		<div class="story-inner cont-inner">
 
 			<story-preview></story-preview>

@@ -53,7 +53,7 @@
 				<select 
 					name="genres" 
 					ng-model="genreSelected" 
-					class="story-genre" 
+					class="form-dropdown" 
 					ng-options="genre.id as genre.type for genre in genres"
 					ng-change="getGenre(genres[genreSelected-1])"
 					>

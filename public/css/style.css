@@ -91,12 +91,12 @@ body{
 
 .story-title:active, .story-title:focus, 
 .story-author:active, .story-author:focus,
-.story-genre:active{
+.form-dropdown:active{
   outline: none;
   border: 1px solid #aaa;
 }
 
-.story-author, .story-genre{
+.story-author, .form-dropdown{
   padding: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
@@ -167,6 +167,16 @@ body{
 
 .submit-inv:focus{
   outline: none;
+}
+
+.inline{
+  display: inline-block !important;
+}
+
+.order-by{
+  width: 40%;
+  float: right;
+  margin-right: -7%; 
 }
 
 .title{
@@ -430,6 +440,17 @@ input[type="checkbox"]:checked + label span {
 
   .cont-inner{
     padding: 0 30px;
+  }
+
+  .form-dropdown{
+    width: 100%;
+  }
+
+  .order-by{
+    width: 80%;
+    float: none;
+    margin-right: 0;
+    margin: 0 auto; 
   }
 
 } 
