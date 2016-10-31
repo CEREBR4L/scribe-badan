@@ -1,16 +1,22 @@
 var express = require("express"),
         app = express();
 var mongoose = require('mongoose');
+var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
 
-var stories = require('./routes/stories.js')
+
+var stories = require('./routes/stories.js');
+var users = require('./routes/users.js');
        
 /* config */
 var connect = mongoose.connect('mongodb://127.0.0.1:27017/scribe-badan');
 var port = process.env.PORT || 8080;
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
+app.use(morgan('dev'));
 
 /* PUBLIC LINKS */
 app.get('/api/get/stories', stories.getStories);
