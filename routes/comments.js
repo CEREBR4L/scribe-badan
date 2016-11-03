@@ -9,7 +9,7 @@ exports.comments = function(req, res){
 			res.json({ message: "Error while trying to retrive comments." });
 		}
 
-		res.json({comments});
+		res.json(comments);
 
 	});
 
