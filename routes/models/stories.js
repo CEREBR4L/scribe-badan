@@ -26,6 +26,10 @@ var dbSchema = new mongoose.Schema({
 	complete: {
 		type: Boolean,
 		default: false
+	},
+	isDeleted: {
+		type: Boolean,
+		default: false
 	}
 })
 

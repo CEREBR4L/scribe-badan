@@ -8,7 +8,10 @@ var dbSchema = new mongoose.Schema({
 	isWriter: Boolean,
 	isAuthor: Boolean,
 	isScribe: Boolean,
-	isActive: Boolean
+	isDeleted:{
+		type: Boolean,
+		default: false
+	}
 })
 
 module.exports = mongoose.model('users', dbSchema);
