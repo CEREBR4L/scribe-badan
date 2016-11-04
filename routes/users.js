@@ -6,13 +6,60 @@ var env = require('node-env-file');
 
 var users = require('./models/users.js')
 
+exports.newUser = function(req, res){
+
+	users.findOne({ username: req.body.username }, function(err, user){
+
+		if (err){
+			res.json({ message: "Erroing while creating user." });
+		}
+
+		if(!user){
+
+			if(!req.body.username || !req.body.password ){
+
+				res.json({ authenticated: false, message: "Please send a username and password." });
+
+			}
+			else{
+
+				var newUser = new users({
+					username: req.body.username,
+					password: req.body.password
+				});
+
+				newUser.save(function(err){
+
+					if(err){ 
+						console.log("Erroring finding user while trying to autheticate: " + err); 
+						res.json({ message: "Error creating user." });
+					}
+
+					console.log("New user created.");
+					res.json({ message: "User successfully created" });
+
+				})
+			}
+
+		}
+		else{
+
+			res.json({ message: "This username is already taken, please pick another." });
+
+		}
+
+	})
+
+}
+
 
 exports.authenticate = function(req, res){
 
 	users.findOne({ name: req.body.name }, function(err, user){
 
 		if(err){ 
-			console.log("Erroring finding user while trying to autheticate: " + err); 
+			console.log("Erroring finding user while trying to autheticate: " + err);
+			res.json({ message: "Erroring finding user while trying to autheticate." }); 
 		}
 
 		if(!user){
@@ -22,6 +69,31 @@ exports.authenticate = function(req, res){
 		}
 		else if(user){
 
+			
+			user.checkPassword(req.body.password, function(err, isMatch){
+
+				if(isMatch && !err){
+
+					var token = jwt.sign({ name: user.username }, process.env.SALT, {});
+
+					res.json({
+						authenticated: true,
+						message: "Token granted, you may pass.",
+						token: token
+					});
+
+				}
+				else{
+
+					res.json({ authenticated: false, message: "Password incorrect" });
+
+				}
+
+			});
+
+			/***********************************
+			 * Replaced with the above for now *
+			 ***********************************
 			if(users.password != req.body.password){
 
 				res.json({ authenticated: false, message: "Password incorrect" });
@@ -37,7 +109,7 @@ exports.authenticate = function(req, res){
 					token: token
 				});
 
-			}
+			} */
 
 		}
 
@@ -63,6 +135,8 @@ exports.verify = function(req, res, next){
 			}
 			else{
 
+				console.log(decoded);
+
 				req.decoded = decoded;
 				next();
 
@@ -87,7 +161,7 @@ exports.findUser = function(req, res){
 
 	console.log(req.decoded);
 
-	users.findOne({ username: req.decoded.username }, function(err, user){
+	users.findOne({ username: req.decoded.name }, function(err, user){
 
 		if(err){ 
 			console.log("Erroring finding user after authetication: " + err);

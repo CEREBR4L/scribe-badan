@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbSchema = new mongoose.Schema({
+var commentsSchema = new mongoose.Schema({
 	parentID: String,
 	user: String, 
 	comment: String,
@@ -12,4 +12,4 @@ var dbSchema = new mongoose.Schema({
 	}
 })
 
-module.exports = mongoose.model('comments', dbSchema);
+module.exports = mongoose.model('comments', commentsSchema);

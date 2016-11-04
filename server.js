@@ -36,6 +36,7 @@ app.put('/api/markComplete/:id', stories.markComplete);
 
 var authRoutes = express.Router();
 
+authRoutes.post('/new', users.newUser);
 authRoutes.post('/authenticate', users.authenticate);
 authRoutes.use(users.verify);
 authRoutes.get('/user', users.findUser);
