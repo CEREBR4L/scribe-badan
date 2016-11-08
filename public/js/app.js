@@ -7,6 +7,10 @@ app.config(function($routeProvider, $locationProvider){
 			templateUrl: 'templates/stories.html',
 			controller: 'stories'
 		})
+		.when('/login', {
+			templateUrl: 'templates/login.html',
+			controller: 'login'
+		})
 		.when('/collaborate', {
 			templateUrl: 'templates/collaborate.html',
 			controller: 'collaborate'

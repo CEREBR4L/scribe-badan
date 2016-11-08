@@ -77,7 +77,7 @@ body{
   padding: 5px 0;
 }
 
-.story-title{
+.story-title, .auth-textbox{
   padding: 10px;
   width: 60%;
   font-family: 'Roboto', sans-serif;
@@ -364,6 +364,28 @@ body{
   margin: 0px;
   display: inline-block;
   cursor: pointer;
+}
+
+.display-flex{
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-cont{
+  width: 30%;
+  margin: 0;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-right: 4px solid #4D5061; 
+  border-bottom: 4px solid #4D5061; 
+}
+
+.auth-textbox{
+  padding: 10px 2%;
+  width: 96%;
+  margin: 10px 0 0 0;
 }
 
 input[type="checkbox"] {
