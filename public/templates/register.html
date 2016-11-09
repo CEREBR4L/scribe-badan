@@ -2,9 +2,9 @@
 
     <div class="auth-cont">
 
-        <h1 class="title">Log In</h1>
+        <h1 class="title">Register</h1>
 
-        <form ng-submit="login()" class="form" name="loginForm">
+        <form ng-submit="register()" class="form" name="registerForm">
 
             <label class="lbl">Username</label>
             <input 
@@ -27,6 +27,18 @@
                 ng-minlength="3"
                 required
             >
+            
+            <label class="lbl">Email</label>
+            <input 
+                type="text" 
+                name="email" 
+                class="auth-textbox" 
+                placeholder="jjstoryman@gmail.com" 
+                ng-model="email" 
+                ng-minlength="3"
+                required
+            >
+
 
             <input type="submit" name="" class="submit">
 

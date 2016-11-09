@@ -91,7 +91,7 @@ body{
 
 .story-title:active, .story-title:focus, 
 .story-author:active, .story-author:focus,
-.form-dropdown:active{
+.form-dropdown:active, .auth-textbox:focus{
   outline: none;
   border: 1px solid #aaa;
 }
