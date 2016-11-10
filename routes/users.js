@@ -25,7 +25,8 @@ exports.newUser = function(req, res){
 
 				var newUser = new users({
 					username: req.body.username,
-					password: req.body.password
+					password: req.body.password,
+					email: req.body.email
 				});
 
 				newUser.save(function(err){
