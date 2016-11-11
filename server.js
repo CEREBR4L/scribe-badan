@@ -33,7 +33,6 @@ app.put('/api/addNeg/:id', stories.addNegative);
 app.put('/api/addView/:id', stories.addView);
 app.put('/api/markComplete/:id', stories.markComplete);
 
-
 var authRoutes = express.Router();
 
 authRoutes.post('/new', users.newUser);

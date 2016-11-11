@@ -56,7 +56,7 @@ exports.newUser = function(req, res){
 
 exports.authenticate = function(req, res){
 
-	users.findOne({ name: req.body.name }, function(err, user){
+	users.findOne({ username: req.body.username }, function(err, user){
 
 		if(err){ 
 			console.log("Erroring finding user while trying to autheticate: " + err);
@@ -75,7 +75,7 @@ exports.authenticate = function(req, res){
 
 				if(isMatch && !err){
 
-					var token = jwt.sign({ name: user.username }, process.env.SALT, {});
+					var token = jwt.sign({ username: user.username }, process.env.SALT, {});
 
 					res.json({
 						authenticated: true,
@@ -162,7 +162,7 @@ exports.findUser = function(req, res){
 
 	console.log(req.decoded);
 
-	users.findOne({ username: req.decoded.name }, function(err, user){
+	users.findOne({ username: req.decoded.username }, function(err, user){
 
 		if(err){ 
 			console.log("Erroring finding user after authetication: " + err);
