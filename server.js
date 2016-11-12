@@ -1,10 +1,12 @@
-var express = require("express"),
-        app = express();
+var express = require("express");
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser'); 
 var jwt = require('jsonwebtoken');
 var env = require('node-env-file');
+
+app = express();
 
 var stories = require('./routes/stories.js');
 var users = require('./routes/users.js');
@@ -17,6 +19,7 @@ env(__dirname + '/.env');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use(morgan('dev'));
 

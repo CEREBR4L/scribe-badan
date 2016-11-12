@@ -1,11 +1,21 @@
 
 angular.module('scribe')
-	.controller('newStory', function newController($scope, createStory){
+	.controller('newStory', function newController($scope, createStory, userInfo){
 
-		var currentGenre;
+		var currentGenre, username;
 		$scope.status = "";
 		$scope.success = {"display": "none"}
 		$scope.link = {"display": "none"}
+
+		userInfo.getUser()
+			.then(function(data, status, headers, config){
+				username = data.data.username;
+			})
+			.catch(function(e){
+
+				console.log("There was an error getting user info: " + e);
+
+			});
 
 		$scope.genres = [
 		   { id: 1, type: "" },
@@ -28,7 +38,7 @@ angular.module('scribe')
 			var story = $.param({ 
 				title: $scope.title, 
 			  	story: $scope.story, 
-			  	author: $scope.author, 
+			  	author: username, 
 			 	genre: currentGenre 
 			});
 
@@ -42,7 +52,6 @@ angular.module('scribe')
 
 					$scope.title = "";
 					$scope.story = "";
-					$scope.author = "";
 					$scope.genreSelected = $scope.genres[0].id;
 
 					$scope.newStoryForm.$setPristine();

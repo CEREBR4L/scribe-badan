@@ -15,6 +15,10 @@ app.config(function($routeProvider, $locationProvider){
 			templateUrl: 'templates/register.html',
 			controller: 'register'
 		})
+		.when('/profile', {
+			templateUrl: 'templates/profile.html',
+			controller: 'profile'
+		})
 		.when('/collaborate', {
 			templateUrl: 'templates/collaborate.html',
 			controller: 'collaborate'

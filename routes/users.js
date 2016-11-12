@@ -77,11 +77,10 @@ exports.authenticate = function(req, res){
 
 					var token = jwt.sign({ username: user.username }, process.env.SALT, {});
 
-					res.json({
-						authenticated: true,
-						message: "Token granted, you may pass.",
-						token: token
-					});
+					res.cookie('session', token, { 
+						httpOnly: true, 
+						expires: new Date(Date.now() + 1000 * 60 * 60)
+					}).send('Cookies set');
 
 				}
 				else{
@@ -120,7 +119,7 @@ exports.authenticate = function(req, res){
 
 exports.verify = function(req, res, next){
 
-	var token = req.body.token || req.query.token || req.headers['x-access-token'];
+	var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.session;
 
 	if(token){
 
