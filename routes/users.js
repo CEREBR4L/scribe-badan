@@ -37,7 +37,7 @@ exports.newUser = function(req, res){
 					}
 
 					console.log("New user created.");
-					res.json({ message: "User successfully created" });
+					res.json({ authenticated: true, message: "User successfully created" });
 
 				})
 			}
@@ -80,7 +80,7 @@ exports.authenticate = function(req, res){
 					res.cookie('session', token, { 
 						httpOnly: true, 
 						expires: new Date(Date.now() + 1000 * 60 * 60)
-					}).send('Cookies set');
+					}).send({ loggedIn: true });
 
 				}
 				else{
