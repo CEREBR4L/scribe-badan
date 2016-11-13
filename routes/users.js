@@ -166,7 +166,7 @@ exports.checkLogin = function(req, res){
 exports.logOut = function(req, res){
 
 	res.clearCookie('session');
-	res.json({ authenticated: false; });
+	res.json({ authenticated: false });
 
 }
 
