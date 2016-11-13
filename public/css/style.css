@@ -61,6 +61,7 @@ body{
   color: #E8E9EB;
   font-family: 'Roboto', sans-serif; 
   font-weight: 300;
+  cursor: pointer;
 }
 
 .link{
