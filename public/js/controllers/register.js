@@ -1,6 +1,6 @@
 
 angular.module('scribe')
-	.controller('register', function newController($scope, $location, createUser, authenticate){
+	.controller('register', function newController($scope, $location, $rootScope, createUser, authenticate){
 
 		$scope.status = "";
 
@@ -31,7 +31,11 @@ angular.module('scribe')
 							.then(function(data, status, headers, config){
 
 								if(data.data.loggedIn){
+
+									$rootScope.loggedIn = true;
+
 									$location.path('/profile');
+									
 								}
 								else{
 									$scope.status = "Failed to log you in";

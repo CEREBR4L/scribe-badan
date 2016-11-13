@@ -5,9 +5,10 @@ angular.module('scribe')
 
             getData: function() {
 
-                return $http.get('/api/get/stories').success(function(data){
-                    return data;
-                });
+                return $http.get('/api/get/stories')
+                    .success(function(data){
+                        return data;
+                    });
                 
             }
 

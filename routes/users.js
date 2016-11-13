@@ -156,6 +156,19 @@ exports.verify = function(req, res, next){
 
 }
 
+exports.checkLogin = function(req, res){
+
+	res.json({ authenticated: true });
+
+}
+
+
+exports.logOut = function(req, res){
+
+	res.clearCookie('session');
+	res.json({ authenticated: false; });
+
+}
 
 exports.findUser = function(req, res){
 

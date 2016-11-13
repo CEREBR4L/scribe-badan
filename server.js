@@ -41,6 +41,8 @@ var authRoutes = express.Router();
 authRoutes.post('/new', users.newUser);
 authRoutes.post('/authenticate', users.authenticate);
 authRoutes.use(users.verify);
+authRoutes.get('/checkLogin', users.checkLogin);
+authRoutes.get('/logout', users.logOut);
 authRoutes.get('/user', users.findUser);
 
 app.use('/api/auth', authRoutes);

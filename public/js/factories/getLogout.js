@@ -1,11 +1,11 @@
 angular.module('scribe')
-    .factory('getRandom', function ($http){
+    .factory('logout', function ($http){
 
         return {
 
-            getData: function() {
+            getLoggedOut: function() {
 
-                return $http.get('/api/get/random')
+                return $http.get('/api/auth/logout')
                     .success(function(data){
                         return data;
                     });

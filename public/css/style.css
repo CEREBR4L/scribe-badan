@@ -15,8 +15,16 @@ body{
   margin: 25px auto !important;
 }
 
+.yellow{
+  color: #E8C547;
+}
+
 .gray{
   color: #eee;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .nav {
@@ -61,7 +69,7 @@ body{
 
 .link:hover{
   opacity: .6;
-  color: rgba(255, 255, 255, 0.6)
+  /*color: rgba(255, 255, 255, 0.6)*/
 }
 
 .cont{
