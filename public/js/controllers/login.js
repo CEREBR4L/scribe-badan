@@ -2,11 +2,12 @@
 angular.module('scribe')
 	.controller('login', function newController($scope, $location, $rootScope, authenticate, checkLogin){
 
-		$scope.status;
-
 		$scope.login = function(){
 
-            console.log("Logging you in now..");
+			$scope.hasError = false;
+			$scope.passwordWrong = false;
+
+            console.log("Attempting to log you in now..");
 
 			var user = $.param({
 				username: $scope.username,
@@ -16,8 +17,6 @@ angular.module('scribe')
 			authenticate.login(user)
 				.then(function(data, status, headers, config){
 
-					$scope.status = data;
-
 					if(data.data.loggedIn){
 
 						$rootScope.loggedIn = true;
@@ -26,7 +25,20 @@ angular.module('scribe')
 
 					}
 					else{
-						$scope.status = "Failed to log you in";
+
+						if(data.data.message === "Password incorrect"){
+
+							$scope.passwordWrong = true;
+
+						}
+						else{
+
+							$scope.hasError = true;
+
+						}
+
+						$scope.status = data.data.message;
+
 					}
 
 				})

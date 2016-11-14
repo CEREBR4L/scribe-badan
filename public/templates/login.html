@@ -12,6 +12,7 @@
                 name="username" 
                 class="auth-textbox" 
                 placeholder="JJ Storyman" 
+                ng-class="{ 'has-error' : hasError || (loginForm.username.$invalid && !loginForm.username.$pristine) }" 
                 ng-model="username" 
                 ng-minlength="3"
                 required
@@ -23,10 +24,15 @@
                 name="password" 
                 class="auth-textbox" 
                 placeholder="* * * * * * * * * *" 
+                ng-class="{ 'has-error' : hasError || passwordWrong || (loginForm.password.$invalid && !loginForm.password.$pristine) }" 
                 ng-model="password" 
                 ng-minlength="3"
                 required
             >
+
+            <div ng-show="hasError || passwordWrong" class="error-block">
+                <p class="help-block text-center">{{ status }}</p>
+            </div>
 
             <input type="submit" name="" class="submit">
 
