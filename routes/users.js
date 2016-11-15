@@ -45,7 +45,7 @@ exports.newUser = function(req, res){
 		}
 		else{
 
-			res.json({ message: "This username is already taken, please pick another." });
+			res.json({ authenticated: false, message: "This username is already taken, please pick another." });
 
 		}
 

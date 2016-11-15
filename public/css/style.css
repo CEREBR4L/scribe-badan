@@ -397,6 +397,12 @@ body{
   margin: 10px 0 0 0;
 }
 
+.required{
+  font-size: .6em;
+  opacity: 0.4;
+  display: block;
+}
+
 input[type="checkbox"] {
   display: none;
 }

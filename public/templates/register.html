@@ -6,23 +6,25 @@
 
         <form ng-submit="register()" class="form" name="registerForm">
 
-            <label class="lbl">Username</label>
+            <label class="lbl">Username <span class="required">Required</span></label>
             <input 
                 type="text" 
                 name="username" 
                 class="auth-textbox" 
                 placeholder="JJ Storyman" 
+                ng-class="{ 'has-error' : hasError || (registerForm.username.$invalid && !registerForm.username.$pristine) }" 
                 ng-model="username" 
                 ng-minlength="3"
                 required
             >
 
-            <label class="lbl">Password</label>
+            <label class="lbl">Password <span class="required">Required</span></label>
             <input 
                 type="password" 
                 name="password" 
                 class="auth-textbox" 
                 placeholder="* * * * * * * * * *" 
+                ng-class="{ 'has-error' : hasError || (registerForm.password.$invalid && !registerForm.password.$pristine) }" 
                 ng-model="password" 
                 ng-minlength="3"
                 required
@@ -36,6 +38,10 @@
                 placeholder="jjstoryman@gmail.com" 
                 ng-model="email" 
             >
+
+            <div ng-show="hasError || passwordWrong" class="error-block">
+                <p class="help-block text-center">{{ status }}</p>
+            </div>
 
 
             <input type="submit" name="" class="submit">

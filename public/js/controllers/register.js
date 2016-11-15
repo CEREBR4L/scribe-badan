@@ -38,7 +38,7 @@ angular.module('scribe')
 									
 								}
 								else{
-									$scope.status = "Failed to log you in";
+									$scope.status = data.data.message;
 								}
 
 							})
@@ -51,13 +51,17 @@ angular.module('scribe')
 							});
 
 					}
+					else{
+						$scope.hasError = true;
+						$scope.status = data.data.message;
+					}
 
 				})
 				.catch(function(e){
 
 					console.log("There was an error creating your account: " + e);
 
-					$scope.status = "Error creating user.";
+					$scope.status = "Error registering user.";
 
 				});
 
