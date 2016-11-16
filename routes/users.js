@@ -5,6 +5,7 @@ var env = require('node-env-file');
 //env(__dirname + '../.env');
 
 var users = require('./models/users.js')
+var stories = require('./models/stories.js')
 
 exports.newUser = function(req, res){
 
@@ -182,6 +183,21 @@ exports.findUser = function(req, res){
 		}
 
 		res.json(user);
+
+	});
+
+}
+
+exports.getUserStories = function(req, res){
+
+	stories.find({ author: req.decoded.username }, function(err, stories) {
+		
+		if(err){
+			console.log("Error getting user stories: " + err);
+			res.json({ message: "Error getting user stories" });
+		}
+
+		res.json(stories);
 
 	});
 

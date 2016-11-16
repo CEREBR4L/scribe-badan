@@ -1,6 +1,6 @@
 
 angular.module('scribe')
-	.controller('profile', function newController($scope, userInfo){
+	.controller('profile', function newController($scope, userInfo, userStories){
 
         $scope.user; 
 
@@ -14,6 +14,15 @@ angular.module('scribe')
 
 			});
 
+		userStories.getStories()
+			.then(function(data, status, headers, config){
+				$scope.stories = data.data;
+			})
+			.catch(function(e){
+
+				console.log("There was an error getting user info: " + e);
+
+			});
 
 
 	});

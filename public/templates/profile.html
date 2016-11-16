@@ -1,7 +1,20 @@
-<div class="cont">
+
+<h1 class="title profile-header">{{ user.username }}</h1>
+
+<div class="cont margin-top">
 	<div class="cont-inner">
 
-        <h1 class="title">{{ user.username }}</h1>
+		<div class="story" ng-repeat="story in stories | orderBy: sortBy.value">
+			<div class="story-inner cont-inner">
+
+				<story-preview></story-preview>
+
+				<a href="#/stories/{{story._id}}">
+					<button class="submit-inv">Continue...</button>
+				</a>
+
+			</div>
+		</div>
 
 	</div>
 </div>

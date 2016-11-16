@@ -442,6 +442,22 @@ input[type="checkbox"]:checked + label span {
   margin: 0;
 }
 
+.profile-header{
+  background-color: #30323D;
+  color: #E8C547;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75em;
+  font-weight: 300;
+  width: 50%;
+  margin: 25px auto 0 auto;
+  padding: 20px;
+  border-right: 4px solid #4D5061; 
+}
+
+.margin-top{
+  margin-top: 0;
+}
+
 
 @media (max-width: 1150px){
 
@@ -507,6 +523,12 @@ input[type="checkbox"]:checked + label span {
 
   .order-by .form-dropdown {
     width: 70%;
+  }
+
+  .profile-header{
+    width: 100%;
+    margin: 0 auto 0 auto;
+    border-right: none; 
   }
 
 } 
