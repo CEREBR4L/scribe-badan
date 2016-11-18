@@ -444,14 +444,48 @@ input[type="checkbox"]:checked + label span {
 
 .profile-header{
   background-color: #30323D;
-  color: #E8C547;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.75em;
-  font-weight: 300;
   width: 50%;
   margin: 25px auto 0 auto;
   padding: 20px;
   border-right: 4px solid #4D5061; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-title{
+  color: #E8C547;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75em;
+  font-weight: 300;
+}
+
+.is-admin, .is-scribe,
+.is-writer, .is-author{
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  font-size: 0.7em;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 3px;
+  margin: 0 3px;
+}
+
+.is-admin{
+  background-color: #E5446D;
+}
+
+.is-writer{
+  background-color: #ff8966;
+}
+
+.is-author{
+  background-color: #3BCEAC;
+}
+
+.is-scribe{
+  background-color: #FFBA49;
 }
 
 .margin-top{

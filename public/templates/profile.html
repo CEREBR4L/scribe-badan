@@ -1,5 +1,33 @@
 
-<h1 class="title profile-header">{{ user.username }}</h1>
+<div class="profile-header">
+
+	<div>
+
+		<h1 class="title profile-title">{{ user.username }}</h1>
+
+	</div>
+
+	<div>
+
+		<div ng-show="user.isAdmin" class="is-admin">
+			Admin
+		</div>
+
+		<div ng-show="user.isScribe" class="is-scribe">
+			Scribe
+		</div>
+
+		<div ng-show="user.isWriter" class="is-writer">
+			Writer
+		</div>
+
+		<div ng-show="user.isAuthor" class="is-author">
+			Author
+		</div>
+
+	</div>
+
+</div>
 
 <div class="cont margin-top">
 	<div class="cont-inner">
