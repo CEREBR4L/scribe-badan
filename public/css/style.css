@@ -488,6 +488,25 @@ input[type="checkbox"]:checked + label span {
   background-color: #FFBA49;
 }
 
+.user-stats{
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+
+.user-stats>h3{
+  color: #4D5061;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.15em;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.user-stats>h3>span{
+  font-weight: 300;
+}
+
+
 .margin-top{
   margin-top: 0;
 }
