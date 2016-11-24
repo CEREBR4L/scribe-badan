@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var commentsSchema = new mongoose.Schema({
 	parentID: String,
-	user: String, 
+	username: String, 
 	comment: String,
 	upvotes: Number,
 	downvotes: Number,

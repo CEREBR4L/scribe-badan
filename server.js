@@ -10,6 +10,7 @@ app = express();
 
 var stories = require('./routes/stories.js');
 var users = require('./routes/users.js');
+var comments = require('./routes/comments.js')
        
 /* config */
 var connect = mongoose.connect('mongodb://127.0.0.1:27017/scribe-badan');
@@ -36,6 +37,8 @@ app.put('/api/addNeg/:id', stories.addNegative);
 app.put('/api/addView/:id', stories.addView);
 app.put('/api/markComplete/:id', stories.markComplete);
 
+app.get('/api/comments/:parent', comments.getByID);
+
 var authRoutes = express.Router();
 
 authRoutes.post('/new', users.newUser);
@@ -45,6 +48,8 @@ authRoutes.get('/checkLogin', users.checkLogin);
 authRoutes.get('/logout', users.logOut);
 authRoutes.get('/user', users.findUser);
 authRoutes.get('/userStories', users.getUserStories);
+
+authRoutes.post('/createComment', comments.new);
 
 app.use('/api/auth', authRoutes);
 
