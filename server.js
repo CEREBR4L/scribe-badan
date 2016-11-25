@@ -50,6 +50,7 @@ authRoutes.get('/user', users.findUser);
 authRoutes.get('/userStories', users.getUserStories);
 
 authRoutes.post('/createComment', comments.new);
+authRoutes.get('/removeComment', comments.delete);
 
 app.use('/api/auth', authRoutes);
 

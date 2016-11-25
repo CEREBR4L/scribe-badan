@@ -58,3 +58,20 @@ exports.new = function(req, res){
 	});
 	
 }
+
+exports.delete = function(req, res){
+
+	var comment = req.body.commentID;
+
+	comments.remove({ _id: comment }, function(err){
+
+		if(err){
+			console.log("Error deleting comment: " + comment);
+			res.json({ message: "There was an issue deleting this comment" });
+		}
+
+		res.json({ message: "Comment deleted" });
+
+	});
+
+}
