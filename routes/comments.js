@@ -43,6 +43,7 @@ exports.new = function(req, res){
 		parentID: parent,
 		username: user, 
 		comment: comment,
+		created: new Date().getTime()
 	})
 
 	data.save(function(err, data){

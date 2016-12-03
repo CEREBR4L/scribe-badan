@@ -5,6 +5,7 @@ var userSchema = new mongoose.Schema({
 	username: String, 
 	password: String,
 	email: String,
+	created: Date,
 	stories: {
 		type: Number,
 		default: 0

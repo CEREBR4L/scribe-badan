@@ -6,6 +6,7 @@ var commentsSchema = new mongoose.Schema({
 	comment: String,
 	upvotes: Number,
 	downvotes: Number,
+	created: Date, 
 	isDeleted: {
 		type: Boolean,
 		default: false

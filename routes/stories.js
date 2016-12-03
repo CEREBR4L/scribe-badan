@@ -64,8 +64,8 @@ exports.add = function(req, res){
 		story: story,
 		author: author,
 		genre: genre,
-		created: new Date,
-		updated: new Date
+		created: new Date().getTime(),
+		updated: new Date().getTime()
 	})
 
 	data.save(function(err, data){
