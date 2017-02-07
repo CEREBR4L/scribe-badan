@@ -1,20 +1,20 @@
-var express = require("express");
-var mongoose = require('mongoose');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser'); 
-var jwt = require('jsonwebtoken');
-var env = require('node-env-file');
+const express = require("express")
+const mongoose = require('mongoose')
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken')
+const env = require('node-env-file')
 
 app = express();
 
-var stories = require('./routes/stories.js');
-var users = require('./routes/users.js');
-var comments = require('./routes/comments.js')
+const stories = require('./routes/stories.js')
+const users = require('./routes/users.js')
+const comments = require('./routes/comments.js')
        
 /* config */
-var connect = mongoose.connect('mongodb://127.0.0.1:27017/scribe-badan');
-var port = process.env.PORT || 8080;
+const connect = mongoose.connect('mongodb://127.0.0.1:27017/scribe-badan')
+const port = process.env.PORT || 8080;
 
 env(__dirname + '/.env');
 
@@ -39,7 +39,7 @@ app.put('/api/markComplete/:id', stories.markComplete);
 
 app.get('/api/comments/:parent', comments.getByID);
 
-var authRoutes = express.Router();
+const authRoutes = express.Router();
 
 authRoutes.post('/new', users.newUser);
 authRoutes.post('/authenticate', users.authenticate);
@@ -62,10 +62,10 @@ app.use('/css/', express.static(__dirname + '/public/css/'));
 app.use('/js/', express.static(__dirname + '/public/js/'));
 app.use('/templates/', express.static(__dirname + '/public/templates/'));
 
-app.use('*', function(req, res){
+app.use('*', (req, res) => {
   res.sendFile(__dirname + '/public/');
 });
     
-app.listen(port, function(){
+app.listen(port, () => {
     console.log("App running on: " + port);
 });

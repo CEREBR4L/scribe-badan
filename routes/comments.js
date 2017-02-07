@@ -1,8 +1,8 @@
-var comments = require('./models/comments.js')
+const comments = require('./models/comments.js')
 
-exports.comments = function(req, res){
+exports.comments = (req, res) => {
 
-	comments.find({}, function(err, comments){
+	comments.find({}, (err, comments) => {
 
 		if(err){
 			console.log("Erroring finding comments: " + err);
@@ -15,11 +15,11 @@ exports.comments = function(req, res){
 
 }
 
-exports.getByID = function(req, res){
+exports.getByID = (req, res) => {
 
-	var parent = req.params.parent;
+	let parent = req.params.parent;
 
-	comments.find({ parentID: parent }, function(err, comments){
+	comments.find({ parentID: parent }, (err, comments) => {
 
 		if(err){
 			console.log("Error getting comments for: " + parent );
@@ -33,20 +33,20 @@ exports.getByID = function(req, res){
 }
 
 
-exports.new = function(req, res){
+exports.new = (req, res) => {
 
-	var parent = req.body.parent;
-	var user = req.body.username;
-	var comment = req.body.comment;
+	let parent = req.body.parent;
+	let user = req.body.username;
+	let comment = req.body.comment;
 
-	var data = 	new stories({
+	let data = 	new stories({
 		parentID: parent,
 		username: user, 
 		comment: comment,
 		created: new Date().getTime()
 	})
 
-	data.save(function(err, data){
+	data.save((err, data) => {
 		if(err){
 			console.log("There was an ERROR: " + err);
 			res.json({ message: "Error creating comment" });
@@ -60,11 +60,11 @@ exports.new = function(req, res){
 	
 }
 
-exports.delete = function(req, res){
+exports.delete = (req, res) => {
 
-	var comment = req.body.commentID;
+	let comment = req.body.commentID;
 
-	comments.remove({ _id: comment }, function(err){
+	comments.remove({ _id: comment }, (err) => {
 
 		if(err){
 			console.log("Error deleting comment: " + comment);

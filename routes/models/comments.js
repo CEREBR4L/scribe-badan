@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var commentsSchema = new mongoose.Schema({
+const commentsSchema = new mongoose.Schema({
 	parentID: String,
 	username: String, 
 	comment: String,

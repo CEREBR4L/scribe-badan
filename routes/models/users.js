@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 	username: String, 
 	password: String,
 	email: String,
@@ -40,19 +40,19 @@ var userSchema = new mongoose.Schema({
 	}
 })
 
-userSchema.pre('save', function(next){
+userSchema.pre('save', (next) => {
 
-	var user = this;
+	let user = this;
 
 	if(this.isModified('password') || this.isNew){
 
-		bcrypt.genSalt(10, function(err, salt){
+		bcrypt.genSalt(10, (err, salt) => {
 
 			if(err){
 				return next(err);
 			}
 
-			bcrypt.hash(user.password, salt, function(err, hash){
+			bcrypt.hash(user.password, salt, (err, hash) => {
 
 				if(err){
 					return next(err);
@@ -74,11 +74,11 @@ userSchema.pre('save', function(next){
 
 });
 
-userSchema.methods.checkPassword = function(passw, cb){
+userSchema.methods.checkPassword = (passw, cb) => {
 
 	console.log("Passw: " + this.password);
 
-	bcrypt.compare(passw, this.password, function(err, isMatch){
+	bcrypt.compare(passw, this.password, (err, isMatch) => {
 
 		if(err){
 			return cb(err);
