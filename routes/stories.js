@@ -1,16 +1,16 @@
-var stories = require('./models/stories.js')
+const stories = require('./models/stories.js')
 
-exports.getStories = function(req, res){
-	stories.find({}).sort({rating: -1}).exec(function(err, items){
+exports.getStories = (req, res) => {
+	stories.find({}).sort({rating: -1}).exec((err, items) => {
 		res.json(items);
 	});
 };
 
-exports.getStoryById = function(req, res){
+exports.getStoryById = (req, res) => {
 
-	var id = req.params.id;
+	let id = req.params.id;
 
-	stories.findOne({_id: id}, function(err, story){
+	stories.findOne({_id: id}, (err, story) => {
 
 		if(err){
 			console.log("Error getting story by ID: " + err );
@@ -23,8 +23,9 @@ exports.getStoryById = function(req, res){
 
 }
 
-exports.getRandom = function(req, res){
-	stories.count({complete: false}).exec(function(err, count){
+exports.getRandom = (req, res) => {
+
+	stories.count({complete: false}).exec((err, count) => {
 		
 		if(err){
 
@@ -35,7 +36,7 @@ exports.getRandom = function(req, res){
 
 		var number = Math.floor(Math.random() * count);
 
-		stories.findOne({complete: false}).skip(number).exec(function(err, story){
+		stories.findOne({complete: false}).skip(number).exec((err, story) => {
 
 			if(err){
 
@@ -52,14 +53,14 @@ exports.getRandom = function(req, res){
 };
 
 
-exports.add = function(req, res){
+exports.add = (req, res) => {
 
-	var title = req.body.title;
-	var story = req.body.story;	
-	var author = req.body.author;
-	var genre = req.body.genre;
+	let title = req.body.title;
+	let story = req.body.story;	
+	let author = req.body.author;
+	let genre = req.body.genre;
 
-	var data = 	new stories({
+	const data = 	new stories({
 		title: title,
 		story: story,
 		author: author,
@@ -68,7 +69,7 @@ exports.add = function(req, res){
 		updated: new Date().getTime()
 	})
 
-	data.save(function(err, data){
+	data.save((err, data) => {
 		if(err){
 			console.log("There was an ERROR: " + err);
 			return;
@@ -82,11 +83,11 @@ exports.add = function(req, res){
 	
 }
 
-exports.updateStory = function(req, res){
+exports.updateStory = (req, res) => {
 
-	var id = req.params.id;
+	let id = req.params.id;
 
-	stories.findOne({_id: id}, function(err, item){
+	stories.findOne({_id: id}, (err, item) => {
 
 		if(err){
 			console.log("Error finding item while trying to update: " + err);
@@ -103,7 +104,7 @@ exports.updateStory = function(req, res){
 		item.complete = req.body.complete;
 		item.updated = new Date;
 
-		item.save(function(err){
+		item.save((err) => {
 
 			if(err){
 				console.log("Error saving item while trying to update: " + err);
@@ -120,11 +121,11 @@ exports.updateStory = function(req, res){
 
 }
 
-exports.addPositive = function(req, res){
+exports.addPositive = (req, res) => {
 
-	var id = req.params.id; 
+	let id = req.params.id; 
 
-	stories.findOne({_id: id}, function(err, item){
+	stories.findOne({_id: id}, (err, item) => {
 
 		if(err){
 			console.log("Error adding upvote: " + err);
@@ -135,7 +136,7 @@ exports.addPositive = function(req, res){
 
 		item.rating = findRating(item.positive, item.negative, item.views, item.updated);
 
-		item.save(function(err, data){
+		item.save((err, data) => {
 
 			if(err){
 				console.log("Error saving upvote: " + err);
@@ -152,11 +153,11 @@ exports.addPositive = function(req, res){
 
 }
 
-exports.addNegative = function(req, res){
+exports.addNegative = (req, res) => {
 
-	var id = req.params.id; 
+	let id = req.params.id; 
 
-	stories.findOne({_id: id}, function(err, item){
+	stories.findOne({_id: id}, (err, item) => {
 
 		if(err){
 			console.log("Error adding Downvote: " + err);
@@ -167,7 +168,7 @@ exports.addNegative = function(req, res){
 
 		item.rating = findRating(item.positive, item.negative, item.views, item.updated);
 
-		item.save(function(err, data){
+		item.save((err, data) => {
 
 			if(err){
 				console.log("Error saving upvote: " + err);
@@ -185,11 +186,11 @@ exports.addNegative = function(req, res){
 }
 
 
-exports.addView = function(req, res){
+exports.addView = (req, res) => {
 
-	var id = req.params.id; 
+	let id = req.params.id; 
 
-	stories.findOne({_id: id}, function(err, item){
+	stories.findOne({_id: id}, (err, item) => {
 
 		if(err){
 			console.log("Error adding view: " + err);
@@ -200,7 +201,7 @@ exports.addView = function(req, res){
 
 		item.rating = findRating(item.positive, item.negative, item.views, item.updated);
 
-		item.save(function(err, data){
+		item.save((err, data) => {
 
 			if(err){
 				console.log("Error saving view: " + err);
@@ -217,11 +218,11 @@ exports.addView = function(req, res){
 
 }
 
-exports.markComplete = function(req, res){
+exports.markComplete = (req, res) => {
 
-	var id = req.params.id;
+	let id = req.params.id;
 
-	stories.findOne({_id: id}, function(err, story){
+	stories.findOne({_id: id}, (err, story) => {
 
 		if(err){
 			console.log("Error marking complete: " + err);
@@ -230,7 +231,7 @@ exports.markComplete = function(req, res){
 
 		story.complete = true; 
 
-		story.save(function(err, item){
+		story.save((err, item) => {
 
 			if(err){
 				console.log("Error saving when marking story complete: " + err);
@@ -252,7 +253,7 @@ function findRating(upvotes, downvotes, views, lastUpdate){
 	
 	if(lastUpdate){
 
-		var update = Math.round( ( new Date().getTime() - lastUpdate.getTime() ) / 1000 / 60 / 60 / 24 ) * 3.5;
+		let update = Math.round( ( new Date().getTime() - lastUpdate.getTime() ) / 1000 / 60 / 60 / 24 ) * 3.5;
 		return ( upvotes + views ) - ( downvotes + update );
 
 	}else{
