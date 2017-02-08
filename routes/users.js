@@ -1,15 +1,15 @@
-var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
-var env = require('node-env-file');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const env = require('node-env-file');
 
 //env(__dirname + '../.env');
 
-var users = require('./models/users.js')
-var stories = require('./models/stories.js')
+const users = require('./models/users.js')
+const stories = require('./models/stories.js')
 
-exports.newUser = function(req, res){
+exports.newUser = (req, res) => {
 
-	users.findOne({ username: req.body.username }, function(err, user){
+	users.findOne({ username: req.body.username }, (err, user) => {
 
 		if (err){
 			res.json({ message: "Erroing while creating user." });
@@ -24,14 +24,14 @@ exports.newUser = function(req, res){
 			}
 			else{
 
-				var newUser = new users({
+				const newUser = new users({
 					username: req.body.username,
 					password: req.body.password,
 					email: req.body.email,
 					created: new Date().getTime()
 				});
 
-				newUser.save(function(err){
+				newUser.save((err) => {
 
 					if(err){ 
 						console.log("Erroring finding user while trying to autheticate: " + err); 
@@ -56,9 +56,9 @@ exports.newUser = function(req, res){
 }
 
 
-exports.authenticate = function(req, res){
+exports.authenticate = (req, res) => {
 
-	users.findOne({ username: req.body.username }, function(err, user){
+	users.findOne({ username: req.body.username }, (err, user) => {
 
 		if(err){ 
 			console.log("Erroring finding user while trying to autheticate: " + err);
@@ -73,11 +73,11 @@ exports.authenticate = function(req, res){
 		else if(user){
 
 			
-			user.checkPassword(req.body.password, function(err, isMatch){
+			user.checkPassword(req.body.password, (err, isMatch) => {
 
 				if(isMatch && !err){
 
-					var token = jwt.sign({ username: user.username }, process.env.SALT, {});
+					let token = jwt.sign({ username: user.username }, process.env.SALT, {});
 
 					res.cookie('session', token, { 
 						httpOnly: true, 
@@ -103,7 +103,7 @@ exports.authenticate = function(req, res){
 			}
 			else{
 
-				var token = jwt.sign({ name: users.username }, process.env.SALT, {});
+				const token = jwt.sign({ name: users.username }, process.env.SALT, {});
 
 				res.json({
 					authenticated: true,
@@ -119,13 +119,13 @@ exports.authenticate = function(req, res){
 
 }
 
-exports.verify = function(req, res, next){
+exports.verify = (req, res, next) => {
 
-	var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.session;
+	const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.session;
 
 	if(token){
 
-		jwt.verify(token, process.env.SALT, function(err, decoded){
+		jwt.verify(token, process.env.SALT, (err, decoded) => {
 
 			if(err){ 
 
@@ -158,25 +158,25 @@ exports.verify = function(req, res, next){
 
 }
 
-exports.checkLogin = function(req, res){
+exports.checkLogin = (req, res) => {
 
 	res.json({ authenticated: true });
 
 }
 
 
-exports.logOut = function(req, res){
+exports.logOut = (req, res) => {
 
 	res.clearCookie('session');
 	res.json({ authenticated: false });
 
 }
 
-exports.findUser = function(req, res){
+exports.findUser = (req, res) => {
 
 	console.log(req.decoded);
 
-	users.findOne({ username: req.decoded.username }, function(err, user){
+	users.findOne({ username: req.decoded.username }, (err, user) => {
 
 		if(err){ 
 			console.log("Erroring finding user after authetication: " + err);
@@ -189,9 +189,9 @@ exports.findUser = function(req, res){
 
 }
 
-exports.getUserStories = function(req, res){
+exports.getUserStories = (req, res) => {
 
-	stories.find({ author: req.decoded.username }, function(err, stories) {
+	stories.find({ author: req.decoded.username }, (err, stories) => {
 		
 		if(err){
 			console.log("Error getting user stories: " + err);
