@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
 	}
 })
 
-userSchema.pre('save', (next) => {
+userSchema.pre('save', function(next){
 
 	let user = this;
 
@@ -74,7 +74,7 @@ userSchema.pre('save', (next) => {
 
 });
 
-userSchema.methods.checkPassword = (passw, cb) => {
+userSchema.methods.checkPassword = function(passw, cb){
 
 	console.log("Passw: " + this.password);
 
